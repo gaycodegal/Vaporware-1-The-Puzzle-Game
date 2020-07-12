@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/marble-3-black.jpg-2d24b0de9dd2469c81c0001df1efa3ba.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://blender/materials/marble-3-black.jpg"
+dest_files=[ "res://.import/marble-3-black.jpg-2d24b0de9dd2469c81c0001df1efa3ba.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
