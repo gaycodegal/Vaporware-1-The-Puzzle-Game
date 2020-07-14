@@ -72,7 +72,7 @@ func _process(d):
 		get_tree().quit()
 	if $Yaw/Camera/InteractionRay.is_colliding():
 		var x = $Yaw/Camera/InteractionRay.get_collider()
-		if x.has_method("pick_up"):
+		if x.has_method("pick_up") and not x.picked_up:
 			$interaction_text.set_text("[F]  Pick up: " + x.get_name())
 		elif x.has_method("interact"):
 			$interaction_text.set_text("[E]  Interact with: " + x.get_name())
@@ -149,7 +149,7 @@ func _process_movements(delta):
 		if can_change_last_floor_height == false:                           # FALL DAMAGE | Not sure if works properly
 			var height_difference = last_floor_height - get_translation().y
 			if height_difference > 0.4:
-				print("OUCH!")
+				pass #would hurt player here
 		can_change_last_floor_height = true
 
 		velocity = velocity - velocity.dot(normal) * normal
@@ -188,7 +188,6 @@ func _process_movements(delta):
 		var stair_normal = $Yaw/stair_check.get_collision_normal()
 		var stair_angle = rad2deg(acos(stair_normal.dot(Vector3(0, 1, 0))))
 		if stair_angle < MAX_STAIR_SLOPE:
-			print("STAIR")
 			velocity.y = STAIR_JUMP_HEIGHT
 
 	var hvel = velocity
