@@ -6,8 +6,6 @@ A puzzle game, name may be changed. Built in godot 3.2.1 stable
 
 ## Levels
 
-Note that you may have to set the main level by alt-clicking and choosing `Set as Main Scene`.
-
 ### 01 Skulls
 
 puzzles/puzzle_01.tscn is the first level, get all skulls in the same rotation to win.'
