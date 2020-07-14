@@ -161,6 +161,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.10606 )
 [node name="InteractionRay" type="RayCast" parent="Yaw/Camera"]
 enabled = true
 cast_to = Vector3( 0, 0, -7 )
+collision_mask = 3
 
 [node name="stair_check" type="RayCast" parent="Yaw"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02655, -0.624282 )
