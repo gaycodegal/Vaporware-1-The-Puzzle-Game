@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://puzzles/Menus/DebugMenu.gd" type="Script" id=1]
+
+[node name="DebugControl" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="01Skulls" type="Button" parent="."]
+margin_right = 148.0
+margin_bottom = 94.0
+text = "01 Skulls"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="02Ghost" type="Button" parent="."]
+margin_left = 148.0
+margin_right = 296.0
+margin_bottom = 94.0
+text = "02 Ghost"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="01Skulls" to="." method="_on_01Skulls_pressed"]
+[connection signal="pressed" from="02Ghost" to="." method="_on_02Ghost_pressed"]

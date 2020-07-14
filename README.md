@@ -20,10 +20,14 @@ puzzles/puzzle_02.tscn is the second level, if you win you will be notified by t
 
 Licenses for various things used
 
+## 3D FPP Interaction Template
+
+Copyright (c) 2018 TheRadMatt, MIT License
+
 ## EverythingLibrary_Animals.zip
 
 LICENSE
-Software applications: MIT License 
+Software applications: MIT License (2020) 
 Creative: Creative Commons Attribution 4.0 International License
 
 Short version: credit “Everything Library © David OReilly” somewhere when you release things. If posting work to social media you can tag me if you like… no pressure.

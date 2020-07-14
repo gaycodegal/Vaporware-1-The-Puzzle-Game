@@ -60,6 +60,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
 
 [node name="FlippingSkull2" parent="Bank2/Spatial2" instance=ExtResource( 1 )]
+is_flipped = true
 
 [node name="FlippingSkull3" parent="Bank2/Spatial2" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )

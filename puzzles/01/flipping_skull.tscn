@@ -6,17 +6,15 @@
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.641985, 0.605697, 0.790138 )
 
-[node name="FlippingSkull" type="Spatial"]
-
-[node name="Skull" type="StaticBody" parent="."]
+[node name="Skull" type="StaticBody"]
 script = ExtResource( 2 )
 
-[node name="target" type="MeshInstance" parent="Skull"]
+[node name="target" type="MeshInstance" parent="."]
 mesh = ExtResource( 1 )
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="Skull"]
+[node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.169924 )
 shape = SubResource( 1 )
 
-[node name="tween" type="Tween" parent="Skull"]
+[node name="tween" type="Tween" parent="."]

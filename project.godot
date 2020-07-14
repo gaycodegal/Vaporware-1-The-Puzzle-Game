@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Vaporwave Puzzle Game"
-run/main_scene="res://puzzles/puzzle_01.tscn"
+run/main_scene="res://puzzles/Menus/DebugMenu.tscn"
 config/icon="res://icon.png"
+
+[debug]
+
+settings/fps/force_fps=60
 
 [display]
 

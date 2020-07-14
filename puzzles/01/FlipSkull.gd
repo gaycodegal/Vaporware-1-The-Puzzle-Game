@@ -3,7 +3,7 @@ extends StaticBody
 
 var tween: Tween
 var target: MeshInstance
-var is_flipped: bool = false
+export(bool) var is_flipped = false
 var button_bank = null
 var x: int
 var y: int
@@ -24,25 +24,29 @@ func _ready():
 	# Initialization here
 	tween = get_node("tween")
 	target = get_node("target")
+	if is_flipped:
+		self.rotation_degrees = desired_rotation()
 
-func opposite_rotation():
-	return Vector3(0,0,0) if is_flipped else Vector3(180,0,0)
+func desired_rotation():
+	return Vector3(180,0,0) if is_flipped else Vector3.ZERO
 
 func fast_flip():
-	self.rotation_degrees = opposite_rotation()
 	is_flipped = not is_flipped
+	self.rotation_degrees = desired_rotation()
 
 func slow_flip():
-
+	is_flipped = not is_flipped
 	tween.interpolate_property(
 		self, 
 		"rotation_degrees", 
 		rotation_degrees, 
-		opposite_rotation(), 
+		desired_rotation(), 
 		1.0, 
 		Tween.TRANS_CUBIC)
-	is_flipped = not is_flipped
 	tween.start()
+	
+func get_name():
+	return "Skull"
 
 func interact(relate):
 	if not tween.is_active():
