@@ -6,13 +6,19 @@ A puzzle game, name may be changed. Built in godot 3.2.1 stable
 
 ## Levels
 
+You will be notified that you have won the level by text displaying in the scene telling you that you have solved the puzzle. Shortly thereafter you will be directed to the debug level select.
+
 ### 01 Skulls
 
 puzzles/puzzle_01.tscn is the first level, get all skulls in the same rotation to win.'
 
 ### 02 Ghost
 
-puzzles/puzzle_02.tscn is the second level, if you win you will be notified by the godot console. Goal will not be expressed in words in the level.
+puzzles/puzzle_02.tscn is the second level. No hints provided.
+
+### 03 Saving Throw
+
+puzzles/puzzle_03.tscn is the third level. No hints provided.
 
 # License
 
