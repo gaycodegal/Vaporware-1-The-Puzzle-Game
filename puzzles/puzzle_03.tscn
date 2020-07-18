@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://entities/Ceiling_Lamp/ceiling_lamp.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://entities/BoundedStage.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://entities/puzzle_objects/Goal/Goal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://entities/puzzle_objects/Goal/GoalBox.tscn" type="PackedScene" id=10]
 [ext_resource path="res://puzzles/03/CountdownTimer.gd" type="Script" id=11]
+[ext_resource path="res://fonts/Roboto/Roboto-Black_36.tres" type="DynamicFont" id=12]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -167,12 +168,14 @@ anchor_left = 0.4
 anchor_top = 0.1
 anchor_right = 0.6
 anchor_bottom = 0.161
+custom_fonts/font = ExtResource( 12 )
 text = "hewwo"
 align = 1
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+hang_time = 1.0
 freethrow_ball = NodePath("../FreeThrowBall")
 
 [node name="FreeThrowBall" parent="." instance=ExtResource( 8 )]

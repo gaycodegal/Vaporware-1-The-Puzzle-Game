@@ -65,6 +65,7 @@ const STAIR_JUMP_HEIGHT = 6
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	get_node("ProgressBar").visible = false
 
 func _exit_tree():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -300,6 +301,7 @@ func _input(event):
 		if carried_object != null:
 			carried_object.throw(throw_power)
 		throw_power = 0
+		get_node("ProgressBar").visible = false
 
 	# Interact
 	if Input.is_action_just_pressed("interact"):
@@ -364,6 +366,7 @@ func throwing(delta):
 		if Input.is_action_pressed("LMB"):
 			if throw_power <= 250:
 				throw_power += 2
+			get_node("ProgressBar").visible = true
 
 # SHOW A MESSAGE ON SCREEN
 func show_message(text, time):
