@@ -195,6 +195,9 @@ margin_bottom = 51.0
 max_value = 250.0
 step = 2.0
 script = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="message" type="Label" parent="."]
 margin_left = 716.0
@@ -202,6 +205,9 @@ margin_top = 168.0
 margin_right = 807.0
 margin_bottom = 182.0
 rect_scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Timer" type="Timer" parent="message"]
 
@@ -213,3 +219,4 @@ text = "interaction"
 align = 1
 valign = 1
 [connection signal="animation_finished" from="crouching" to="." method="_on_crouching_animation_finished"]
+[connection signal="timeout" from="message/Timer" to="." method="message_done"]

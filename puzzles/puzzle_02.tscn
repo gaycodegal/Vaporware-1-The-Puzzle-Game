@@ -157,6 +157,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
 
 [node name="BoundedStage" parent="." instance=ExtResource( 2 )]
+title = "Ghost Goal"
 
 [node name="Target" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12989, 2.44243, 0.0543969 )
@@ -175,5 +176,6 @@ target_to_grow_path = NodePath("../Target")
 growth_factor = 0.1
 max_scale = 1.1
 min_scale = 0.4
+[connection signal="win" from="Target" to="Player" method="on_win"]
 [connection signal="body_entered" from="GoalBox/Goal" to="Target" method="_on_Goal_body_entered"]
 [connection signal="body_exited" from="GoalBox/Goal" to="Target" method="_on_Goal_body_exited"]

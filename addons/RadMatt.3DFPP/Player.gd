@@ -1,6 +1,8 @@
 
 extends KinematicBody
 
+var did_win = false
+
 var carried_object = null
 var throw_power = 0
 
@@ -63,6 +65,9 @@ const STAIR_JUMP_HEIGHT = 6
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func _exit_tree():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _process(d):
 
@@ -349,6 +354,10 @@ func impulse(vector_towards, power, time):
 	for x in range(time * 100):
 		velocity += vector_towards * Vector3(power, power, power)
 
+func on_win():
+	did_win = true
+	show_message("You solved the puzzle!!!", 5)
+
 # THROW STUFF
 func throwing(delta):
 	if carried_object != null:
@@ -363,3 +372,8 @@ func show_message(text, time):
 	$message/Timer.start()
 	yield($message/Timer, "timeout")
 	$message.set_text("")
+
+
+func message_done():
+	if did_win:
+		get_tree().change_scene("res://puzzles/Menus/DebugMenu.tscn")

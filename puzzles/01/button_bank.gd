@@ -1,5 +1,7 @@
 extends Spatial
 
+signal win
+
 var solved = false
 var state = [
 	[[false, false, false], [false, false, false], [false, false, false]],
@@ -35,7 +37,7 @@ func checkForWin():
 				if getSkull(x,y,z).is_flipped != goal:
 					solved = false
 					return
-	print("YOU WIN!")
+	emit_signal("win")
 	solved = true
 
 func maybeFlip(skull):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://entities/Ceiling_Lamp/ceiling_lamp.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://entities/BoundedStage.tscn" type="PackedScene" id=2]
@@ -6,10 +6,16 @@
 [ext_resource path="res://entities/Column/column.tres" type="ArrayMesh" id=4]
 [ext_resource path="res://misc/instructions.png" type="Texture" id=5]
 [ext_resource path="res://addons/RadMatt.3DFPP/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://puzzles/01/button_bank.tscn" type="PackedScene" id=7]
+[ext_resource path="res://entities/Column/Column.tscn" type="PackedScene" id=7]
+[ext_resource path="res://puzzles/03/FreeThrowBall.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/puzzle_objects/Goal/Goal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/puzzle_objects/Goal/GoalBox.tscn" type="PackedScene" id=10]
+[ext_resource path="res://puzzles/03/CountdownTimer.gd" type="Script" id=11]
 
 [sub_resource type="Environment" id=1]
-ambient_light_color = Color( 0.866667, 0.576471, 0.745098, 1 )
+background_mode = 1
+background_color = Color( 0, 0.870588, 0.52549, 1 )
+ambient_light_color = Color( 0.576471, 0.866667, 0.67451, 1 )
 fog_height_min = 0.0
 fog_height_max = 100.0
 ssao_enabled = true
@@ -112,9 +118,6 @@ shadow_bias = 0.14
 shadow_contact = 0.45
 omni_range = 11.5403
 
-[node name="ButtonBank" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.051, 0 )
-
 [node name="Columns" type="Node" parent="."]
 
 [node name="column" type="MeshInstance" parent="Columns"]
@@ -147,6 +150,36 @@ transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, -11.25, 0, -6 )
 mesh = ExtResource( 4 )
 material/0 = ExtResource( 3 )
 
+[node name="BallPillar" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
+
 [node name="BoundedStage" parent="." instance=ExtResource( 2 )]
-title = "Skulls"
-[connection signal="win" from="ButtonBank" to="Player" method="on_win"]
+title = "Saving Throw"
+
+[node name="GoalBox" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0 )
+
+[node name="Goal" parent="GoalBox" instance=ExtResource( 9 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.0371065, 0 )
+
+[node name="CountdownTimer" type="Label" parent="."]
+anchor_left = 0.4
+anchor_top = 0.1
+anchor_right = 0.6
+anchor_bottom = 0.161
+text = "hewwo"
+align = 1
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+freethrow_ball = NodePath("../FreeThrowBall")
+
+[node name="FreeThrowBall" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.5, 0 )
+[connection signal="body_entered" from="GoalBox/Goal" to="FreeThrowBall" method="_on_Goal_body_entered"]
+[connection signal="body_exited" from="GoalBox/Goal" to="FreeThrowBall" method="_on_Goal_body_exited"]
+[connection signal="body_entered" from="FreeThrowBall" to="CountdownTimer" method="_on_FreeThrowBall_body_entered"]
+[connection signal="pickup" from="FreeThrowBall" to="CountdownTimer" method="_on_FreeThrowBall_pickup"]
+[connection signal="thrown" from="FreeThrowBall" to="CountdownTimer" method="_on_FreeThrowBall_thrown"]
+[connection signal="win" from="FreeThrowBall" to="Player" method="on_win"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://entities/puzzle_objects/sphere.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://materials/marble_material_inverted.tres" type="Material" id=2]
+[ext_resource path="res://puzzles/03/FreethrowBall.gd" type="Script" id=3]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.6
+
+[sub_resource type="SphereShape" id=2]
+radius = 0.437386
+
+[node name="FreeThrowBall" type="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 0.999582, -0.0288956, 0, 0.0288956, 0.999582, 0, 0, 0 )
+mass = 20.0
+physics_material_override = SubResource( 1 )
+contacts_reported = 1
+contact_monitor = true
+can_sleep = false
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 2 )
+
+[node name="sphere" type="MeshInstance" parent="."]
+transform = Transform( 0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
