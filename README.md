@@ -20,6 +20,10 @@ puzzles/puzzle_02.tscn is the second level. No hints provided.
 
 puzzles/puzzle_03.tscn is the third level. No hints provided.
 
+### 04 "1312"
+
+puzzles/puzzle_04.tscn is the fourth level. No hints provided.
+
 # License
 
 Licenses for various things used
