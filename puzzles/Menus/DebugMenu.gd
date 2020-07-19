@@ -15,3 +15,6 @@ func _on_02Ghost_pressed():
 
 func _on_03SavingThrow_pressed():
 	get_tree().change_scene("res://puzzles/puzzle_03.tscn")
+
+func _on_04_1312_pressed():
+	get_tree().change_scene("res://puzzles/puzzle_04.tscn")

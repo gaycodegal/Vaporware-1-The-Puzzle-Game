@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/pointer.obj-5d06b5367214d222992109904bfed262.mesh"
+
+[deps]
+
+files=[ "res://.import/pointer.obj-5d06b5367214d222992109904bfed262.mesh" ]
+
+source_file="res://blender/puzzle_objects/pointer.obj"
+dest_files=[ "res://.import/pointer.obj-5d06b5367214d222992109904bfed262.mesh", "res://.import/pointer.obj-5d06b5367214d222992109904bfed262.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

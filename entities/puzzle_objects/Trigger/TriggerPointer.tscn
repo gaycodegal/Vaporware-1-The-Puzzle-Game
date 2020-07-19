@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://entities/puzzle_objects/pointer.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://entities/puzzle_objects/Trigger/Trigger.gd" type="Script" id=2]
+[ext_resource path="res://materials/marble_material_inverted.tres" type="Material" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 0.289751, 1.28306 )
+
+[node name="PointerTrigger" type="StaticBody"]
+script = ExtResource( 2 )
+
+[node name="pointer" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16277, 0.29083 )
+shape = SubResource( 1 )

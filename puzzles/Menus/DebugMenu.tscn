@@ -35,6 +35,16 @@ text = "03 Saving Throw"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="04 1312" type="Button" parent="."]
+margin_left = 444.0
+margin_right = 592.0
+margin_bottom = 94.0
+text = "04 1312"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="01Skulls" to="." method="_on_01Skulls_pressed"]
 [connection signal="pressed" from="02Ghost" to="." method="_on_02Ghost_pressed"]
 [connection signal="pressed" from="03SavingThrow" to="." method="_on_03SavingThrow_pressed"]
+[connection signal="pressed" from="04 1312" to="." method="_on_04_1312_pressed"]
