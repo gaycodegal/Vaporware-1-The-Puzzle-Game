@@ -94,6 +94,8 @@ func _process(d):
 	var dir = (get_node("Yaw/Camera/look_at").get_global_transform().origin - get_node("Yaw/Camera").get_global_transform().origin).normalized()
 	look_vector = dir
 
+func get_collision_point():
+	return $Yaw/Camera/InteractionRay.get_collision_point()
 
 func _physics_process(delta): #IS PLAYER MOVING NORMALLY OR ON LADDER?
 	if on_ladder:
@@ -310,6 +312,7 @@ func _input(event):
 			#print("COLLIDING")
 			#print(x.get_name())
 			if x.has_method("interact"):
+
 				x.interact(self)
 
 
