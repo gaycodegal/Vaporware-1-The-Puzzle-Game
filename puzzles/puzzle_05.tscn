@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://entities/Ceiling_Lamp/ceiling_lamp.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://entities/BoundedStage.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://misc/instructions.png" type="Texture" id=5]
 [ext_resource path="res://addons/RadMatt.3DFPP/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://puzzles/05/ButtonGrid.tscn" type="PackedScene" id=7]
+[ext_resource path="res://puzzles/05/platform.tres" type="CubeMesh" id=8]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -50,6 +51,9 @@ roughness = 0.0
 
 [sub_resource type="BoxShape" id=8]
 extents = Vector3( 0.483239, 0.695562, 0.491112 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 3.014, 0.141, 3.014 )
 
 [node name="Room_01" type="Node"]
 
@@ -150,6 +154,61 @@ material/0 = ExtResource( 3 )
 title = "Saving Throw"
 
 [node name="ButtonGrid" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 2.03739, 0 )
+transform = Transform( 0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 1.63512, 0 )
 cols = 10
 rows = 10
+
+[node name="platform" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87753, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="platform"]
+transform = Transform( 3, 0, 0, 0, 0.1, 0, 0, 0, 3, 0, 0, 0 )
+mesh = ExtResource( 8 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="platform"]
+shape = SubResource( 10 )
+
+[node name="step" type="StaticBody" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.14, 0, 1.52417, 3.52311 )
+
+[node name="MeshInstance" type="MeshInstance" parent="step"]
+transform = Transform( 3, 0, 0, 0, 0.1, 0, 0, 0, 3, 0, 0, 0 )
+mesh = ExtResource( 8 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="step"]
+shape = SubResource( 10 )
+
+[node name="step2" type="StaticBody" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.14, 0, 1.08639, 4.51953 )
+
+[node name="MeshInstance" type="MeshInstance" parent="step2"]
+transform = Transform( 3, 0, 0, 0, 0.1, 0, 0, 0, 3, 0, 0, 0 )
+mesh = ExtResource( 8 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="step2"]
+shape = SubResource( 10 )
+
+[node name="step3" type="StaticBody" parent="."]
+transform = Transform( 0.480297, 0, 0, 0, 0.960595, 0, 0, 0, 0.134483, 0, 0.706465, 5.55333 )
+
+[node name="MeshInstance" type="MeshInstance" parent="step3"]
+transform = Transform( 3, 0, 0, 0, 0.1, 0, 0, 0, 3, 0, 0, 0 )
+mesh = ExtResource( 8 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="step3"]
+shape = SubResource( 10 )
+
+[node name="step4" type="StaticBody" parent="."]
+transform = Transform( 0.480297, 0, 0, 0, 0.960595, 0, 0, 0, 0.134483, 0, 0.325738, 6.54278 )
+
+[node name="MeshInstance" type="MeshInstance" parent="step4"]
+transform = Transform( 3, 0, 0, 0, 0.1, 0, 0, 0, 3, 0, 0, 0 )
+mesh = ExtResource( 8 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="step4"]
+shape = SubResource( 10 )
