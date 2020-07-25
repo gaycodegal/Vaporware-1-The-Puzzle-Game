@@ -24,6 +24,10 @@ puzzles/puzzle_03.tscn is the third level. No hints provided.
 
 puzzles/puzzle_04.tscn is the fourth level. No hints provided.
 
+### 05 "One Liner"
+
+puzzles/puzzle_05.tscn is the fifth level. It's a maze, figure out how to solve it ;)
+
 # License
 
 Licenses for various things used
