@@ -44,7 +44,17 @@ text = "04 1312"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="05 One Liner" type="Button" parent="."]
+margin_left = 592.0
+margin_right = 740.0
+margin_bottom = 94.0
+text = "05 One Liner"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="01Skulls" to="." method="_on_01Skulls_pressed"]
 [connection signal="pressed" from="02Ghost" to="." method="_on_02Ghost_pressed"]
 [connection signal="pressed" from="03SavingThrow" to="." method="_on_03SavingThrow_pressed"]
 [connection signal="pressed" from="04 1312" to="." method="_on_04_1312_pressed"]
+[connection signal="pressed" from="05 One Liner" to="." method="_on_05_One_Liner_pressed"]

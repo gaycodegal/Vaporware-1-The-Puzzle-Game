@@ -1,0 +1,11 @@
+[gd_resource type="MultiMesh" load_steps=3 format=2]
+
+[ext_resource path="res://materials/marble_material_inverted.tres" type="Material" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+material = ExtResource( 1 )
+size = Vector3( 1, 1, 1 )
+
+[resource]
+transform_format = 1
+mesh = SubResource( 1 )

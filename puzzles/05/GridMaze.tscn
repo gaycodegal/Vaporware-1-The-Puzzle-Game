@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://puzzles/05/GridMaze.gd" type="Script" id=1]
+[ext_resource path="res://materials/marble_material_inverted.tres" type="Material" id=2]
+[ext_resource path="res://puzzles/05/goal-marker.tres" type="ArrayMesh" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+material = ExtResource( 2 )
+size = Vector3( 1, 1, 1 )
+
+[sub_resource type="MultiMesh" id=2]
+transform_format = 1
+mesh = SubResource( 1 )
+
+[node name="GridMaze" type="MultiMeshInstance"]
+multimesh = SubResource( 2 )
+script = ExtResource( 1 )
+
+[node name="start" type="MeshInstance" parent="."]
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="end" type="MeshInstance" parent="."]
+mesh = ExtResource( 3 )
+material/0 = null
