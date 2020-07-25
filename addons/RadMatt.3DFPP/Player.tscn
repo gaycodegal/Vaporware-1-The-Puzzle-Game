@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://addons/RadMatt.3DFPP/Player.gd" type="Script" id=1]
-[ext_resource path="res://addons/RadMatt.3DFPP/Test_Objects/pointer.png" type="Texture" id=2]
 [ext_resource path="res://fonts/Roboto/Roboto-Black_36.tres" type="DynamicFont" id=3]
 
 [sub_resource type="CapsuleMesh" id=1]
@@ -169,12 +168,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02655, -0.624282 )
 enabled = true
 cast_to = Vector3( 0, -0.5, 0 )
 
-[node name="Pointer" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.392157 )
-position = Vector2( 800, 450 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 2 )
-
 [node name="FPS" type="Label" parent="."]
 margin_left = 1292.0
 margin_top = 831.0
@@ -184,6 +177,9 @@ rect_scale = Vector2( 4, 4 )
 align = 2
 valign = 1
 script = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="crouching" type="AnimationPlayer" parent="."]
 anims/crouch = SubResource( 5 )
@@ -212,14 +208,38 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="message"]
 
-[node name="interaction_text" type="Label" parent="."]
+[node name="interactions" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="interaction_text" type="Label" parent="interactions"]
+margin_left = 765.0
+margin_top = 443.0
+margin_right = 834.0
+margin_bottom = 457.0
 text = "interaction"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="pointer" type="ColorRect" parent="interactions"]
+margin_left = 796.0
+margin_top = 446.0
+margin_right = 804.0
+margin_bottom = 454.0
+rect_min_size = Vector2( 8, 8 )
+mouse_filter = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+color = Color( 1, 1, 1, 0.631373 )
 [connection signal="animation_finished" from="crouching" to="." method="_on_crouching_animation_finished"]
 [connection signal="timeout" from="message/Timer" to="." method="message_done"]

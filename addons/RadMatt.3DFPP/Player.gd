@@ -79,13 +79,17 @@ func _process(d):
 	if $Yaw/Camera/InteractionRay.is_colliding():
 		var x = $Yaw/Camera/InteractionRay.get_collider()
 		if x.has_method("pick_up") and not x.picked_up:
-			$interaction_text.set_text("[F]  Pick up: " + x.get_name())
+			$interactions/interaction_text.set_text("[F]  Pick up: " + x.get_name())
+			$interactions/pointer.visible = false
 		elif x.has_method("interact"):
-			$interaction_text.set_text("[E]  Interact with: " + x.get_name())
+			$interactions/interaction_text.set_text("[E]  Interact with: " + x.get_name())
+			$interactions/pointer.visible = false
 		else:
-			$interaction_text.set_text("")
+			$interactions/pointer.visible = true
+			$interactions/interaction_text.set_text("")
 	else:
-		$interaction_text.set_text("")
+		$interactions/pointer.visible = true
+		$interactions/interaction_text.set_text("")
 
 
 #######################################################################################################
@@ -94,6 +98,8 @@ func _process(d):
 	var dir = (get_node("Yaw/Camera/look_at").get_global_transform().origin - get_node("Yaw/Camera").get_global_transform().origin).normalized()
 	look_vector = dir
 
+func get_collision_point():
+	return $Yaw/Camera/InteractionRay.get_collision_point()
 
 func _physics_process(delta): #IS PLAYER MOVING NORMALLY OR ON LADDER?
 	if on_ladder:
@@ -310,6 +316,7 @@ func _input(event):
 			#print("COLLIDING")
 			#print(x.get_name())
 			if x.has_method("interact"):
+
 				x.interact(self)
 
 
@@ -375,7 +382,6 @@ func show_message(text, time):
 	$message/Timer.start()
 	yield($message/Timer, "timeout")
 	$message.set_text("")
-
 
 func message_done():
 	if did_win:

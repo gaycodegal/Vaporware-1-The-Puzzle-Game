@@ -1,0 +1,24 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://puzzles/05/ButtonGrid.gd" type="Script" id=1]
+[ext_resource path="res://materials/marble_material_inverted.tres" type="Material" id=2]
+[ext_resource path="res://puzzles/05/ButtonInstance.gd" type="Script" id=3]
+[ext_resource path="res://puzzles/05/links.gd" type="Script" id=4]
+[ext_resource path="res://puzzles/05/CubeMultimesh.tres" type="MultiMesh" id=5]
+
+[sub_resource type="CubeMesh" id=1]
+material = ExtResource( 2 )
+size = Vector3( 1, 1, 1 )
+
+[sub_resource type="MultiMesh" id=2]
+transform_format = 1
+mesh = SubResource( 1 )
+
+[node name="multimeshinstance" type="MultiMeshInstance"]
+multimesh = SubResource( 2 )
+script = ExtResource( 1 )
+button_script = ExtResource( 3 )
+
+[node name="links" type="MultiMeshInstance" parent="."]
+multimesh = ExtResource( 5 )
+script = ExtResource( 4 )
