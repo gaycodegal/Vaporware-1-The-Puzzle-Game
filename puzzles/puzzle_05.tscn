@@ -161,7 +161,7 @@ rows = 10
 grid_maze = NodePath("../GridMaze")
 
 [node name="GridMaze" parent="." instance=ExtResource( 9 )]
-transform = Transform( 0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 2.4812, 0 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 2.4812, 0 )
 cols = 21
 rows = 21
 maze_path = "res://puzzles/05/maze-finished.txt"

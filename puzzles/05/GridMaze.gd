@@ -69,17 +69,21 @@ func _ready():
 	for col in range(cols):
 		for row in range(rows):
 			if isCube(row, col):
-				var pos = Transform()
-				pos = pos.translated(Vector3(
-					col * space_width - width / 2 + mesh_width / 2,
-					row * space_height - height / 2 + mesh_height/2, 
-					0))
+				var pos = makeTransform(row,  col)
 				multimeshinstance.multimesh.set_instance_transform(i, pos)
 				i += 1
 			elif isStart(row, col):
+				get_node("start").transform = makeTransform(row,  col)
 				start_pos = Vector2(row / 2, col / 2)
 			elif isEnd(row, col):
+				get_node("end").transform = makeTransform(row,  col)
 				end_pos = Vector2(row / 2, col / 2)
+
+func makeTransform(row, col):
+	return Transform().translated(Vector3(
+		col * space_width - width / 2 + mesh_width / 2,
+		0, 
+		row * space_height - height / 2 + mesh_height/2))
 
 func is_allowed(last, current):
 	var row = (last[0] * 2 + current[0] * 2 + 2) / 2
