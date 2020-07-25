@@ -1,5 +1,7 @@
 extends MultiMeshInstance
 
+signal win
+
 export(int) var cols = 1
 export(int) var rows = 1
 export(float) var spacing = 1
@@ -7,6 +9,7 @@ export(float) var mesh_width = 1
 export(float) var mesh_height = 1
 export(float) var mesh_depth = 1
 export(Script) var button_script
+export(NodePath) var grid_maze
 
 var space_width
 var space_height
@@ -14,9 +17,11 @@ var width
 var height
 var multimeshinstance
 var last_pressed
+var maze
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	maze = get_node(grid_maze)
 	multimeshinstance = self
 	multimeshinstance.multimesh.instance_count = cols * rows
 	space_width = mesh_width + spacing
@@ -64,9 +69,24 @@ func distance_ok(a, b):
 	return abs(a[0]-b[0]) + abs(a[1]-b[1]) <= 1
 
 func interact(row, col, player):
-	var current = [row, col]
-	if last_pressed != null:
-		if not distance_ok(last_pressed, current) or not get_node("links").link(last_pressed, current):
-			current = null
-		
-	last_pressed = current
+	if last_pressed == null:
+		if Vector2(row, col) == maze.start_pos:
+			last_pressed = maze.start_pos
+		return
+	var current = Vector2(row, col)
+	var shouldNull = not distance_ok(last_pressed, current)
+	if shouldNull:
+		print("distance bad")
+		return
+	shouldNull = shouldNull or not maze.is_allowed(last_pressed, current)
+	if shouldNull:
+		print("not allowed")
+		return
+	shouldNull = shouldNull or not get_node("links").link(last_pressed, current)
+	if shouldNull:
+		print("no link")
+		return
+	if not shouldNull:
+		last_pressed = current
+		if current == maze.end_pos:
+			emit_signal("win")

@@ -18,7 +18,7 @@ func _ready():
 	multimesh.instance_count = 0
 
 func point_str(point):
-	return "%d:%d" % point
+	return "%d:%d" % [point[0], point[1]]
 
 func pair_str(a, b):
 	a = point_str(a)

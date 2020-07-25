@@ -22,14 +22,14 @@ var maze_lines = []
 var cubes = 0
 func loadMaze():
 	var f = File.new()
-	print(f.file_exists(maze_path))
+	#print(f.file_exists(maze_path))
 	f.open(maze_path, File.READ)
 
 	var index = 0
 	while not f.eof_reached():
 		var line = f.get_line()
 		index += 1
-		print(line)
+		#print(line)
 		maze_lines.append(line.to_ascii())
 		if index > 100:
 			break
@@ -41,9 +41,19 @@ func loadMaze():
 				cubes += 1
 
 func isCube(row, col):
-	print(len(maze_lines[row]))
 	var c = maze_lines[row][col]
 	return c != S and c != E and c != SPACE
+
+func isStart(row, col):
+	var c = maze_lines[row][col]
+	return c == S
+
+func isEnd(row, col):
+	var c = maze_lines[row][col]
+	return c == E
+	
+var end_pos
+var start_pos
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -66,8 +76,16 @@ func _ready():
 					0))
 				multimeshinstance.multimesh.set_instance_transform(i, pos)
 				i += 1
+			elif isStart(row, col):
+				start_pos = Vector2(row / 2, col / 2)
+			elif isEnd(row, col):
+				end_pos = Vector2(row / 2, col / 2)
 
-			
+func is_allowed(last, current):
+	var row = (last[0] * 2 + current[0] * 2 + 2) / 2
+	var col = (last[1] * 2 + current[1] * 2 + 2) / 2
+	var is_free = not isCube(row, col)
+	return is_free
 
 func distance_ok(a, b):
 	return abs(a[0]-b[0]) + abs(a[1]-b[1]) <= 1

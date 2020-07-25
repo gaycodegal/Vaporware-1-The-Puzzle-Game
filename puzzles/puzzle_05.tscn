@@ -155,9 +155,10 @@ material/0 = ExtResource( 3 )
 title = "One Liner"
 
 [node name="ButtonGrid" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 1.63512, 0 )
+transform = Transform( 0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 1.65589, 0 )
 cols = 10
 rows = 10
+grid_maze = NodePath("../GridMaze")
 
 [node name="GridMaze" parent="." instance=ExtResource( 9 )]
 transform = Transform( 0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 2.4812, 0 )
@@ -219,3 +220,4 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="step4"]
 shape = SubResource( 9 )
+[connection signal="win" from="ButtonGrid" to="Player" method="on_win"]
