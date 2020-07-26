@@ -23,13 +23,14 @@ margin_bottom = 900.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/CenterContainer"]
+[node name="Main" type="VBoxContainer" parent="ScrollContainer/CenterContainer"]
+visible = false
 margin_left = 650.0
 margin_top = 317.0
 margin_right = 950.0
 margin_bottom = 583.0
 
-[node name="Play" type="Button" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="ScrollContainer/CenterContainer/Main"]
 margin_right = 300.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 300, 50 )
@@ -40,7 +41,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LevelSelect" type="Button" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="LevelSelect" type="Button" parent="ScrollContainer/CenterContainer/Main"]
 margin_top = 54.0
 margin_right = 300.0
 margin_bottom = 104.0
@@ -52,7 +53,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Options" type="Button" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="GraphicsOptions" type="Button" parent="ScrollContainer/CenterContainer/Main"]
 margin_top = 108.0
 margin_right = 300.0
 margin_bottom = 158.0
@@ -64,7 +65,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Credits" type="Button" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Credits" type="Button" parent="ScrollContainer/CenterContainer/Main"]
 margin_top = 162.0
 margin_right = 300.0
 margin_bottom = 212.0
@@ -76,7 +77,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quit" type="Button" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="ScrollContainer/CenterContainer/Main"]
 margin_top = 216.0
 margin_right = 300.0
 margin_bottom = 266.0
@@ -87,8 +88,60 @@ text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="ScrollContainer/CenterContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
-[connection signal="pressed" from="ScrollContainer/CenterContainer/VBoxContainer/LevelSelect" to="." method="_on_Level_Select_pressed"]
-[connection signal="pressed" from="ScrollContainer/CenterContainer/VBoxContainer/Options" to="." method="_on_Options_pressed"]
-[connection signal="pressed" from="ScrollContainer/CenterContainer/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
-[connection signal="pressed" from="ScrollContainer/CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+
+[node name="Options" type="VBoxContainer" parent="ScrollContainer/CenterContainer"]
+margin_left = 650.0
+margin_top = 362.0
+margin_right = 950.0
+margin_bottom = 538.0
+
+[node name="DisplaySizes" type="Label" parent="ScrollContainer/CenterContainer/Options"]
+margin_right = 300.0
+margin_bottom = 14.0
+text = "Display Sizes"
+
+[node name="ScreenSizes" type="OptionButton" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 18.0
+margin_right = 300.0
+margin_bottom = 38.0
+text = "Custom"
+
+[node name="VSync" type="CheckBox" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 42.0
+margin_right = 300.0
+margin_bottom = 66.0
+text = "Enable Vertical Synchronization"
+
+[node name="Fullscreen" type="CheckBox" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 70.0
+margin_right = 300.0
+margin_bottom = 94.0
+text = "Fullscreen"
+
+[node name="Borderless" type="CheckBox" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 98.0
+margin_right = 300.0
+margin_bottom = 122.0
+text = "Fullscreen"
+
+[node name="Back" type="Button" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 126.0
+margin_right = 300.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 300, 50 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="ScrollContainer/CenterContainer/Main/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="ScrollContainer/CenterContainer/Main/LevelSelect" to="." method="_on_Level_Select_pressed"]
+[connection signal="pressed" from="ScrollContainer/CenterContainer/Main/GraphicsOptions" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="ScrollContainer/CenterContainer/Main/Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="ScrollContainer/CenterContainer/Main/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="item_selected" from="ScrollContainer/CenterContainer/Options/ScreenSizes" to="." method="_on_ScreenSizes_item_selected"]
+[connection signal="toggled" from="ScrollContainer/CenterContainer/Options/VSync" to="." method="_on_VSync_toggled"]
+[connection signal="toggled" from="ScrollContainer/CenterContainer/Options/Fullscreen" to="." method="_on_Fullscreen_toggled"]
+[connection signal="toggled" from="ScrollContainer/CenterContainer/Options/Borderless" to="." method="_on_Borderless_toggled"]
+[connection signal="pressed" from="ScrollContainer/CenterContainer/Options/Back" to="." method="_on_Back_pressed"]

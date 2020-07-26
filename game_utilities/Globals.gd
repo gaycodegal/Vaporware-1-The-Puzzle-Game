@@ -11,10 +11,17 @@ var args: Array
 var settings = {
 	"general" : {
 		"version": 1,
-		"language": "en",
 	},
 	"game" : {
 		"level": 0,
+	},
+	"options" : {
+		"language": "en",
+		"width": 1600,
+		"height": 900,
+		"fullscreen": false,
+		"vsync": false,
+		"borderless": false,
 	}
 }
 
@@ -36,7 +43,7 @@ func get_arg_value(name, default):
 func _ready():
 	args = Array(OS.get_cmdline_args())
 	load_config()
-	load_language()
+	apply_options()
 
 func full_save_config():
 	config = ConfigFile.new()
@@ -77,9 +84,16 @@ func load_config():
 		for key in section_map:
 			section_map[key] = config.get_value(section, key, section_map[key])
 			
+func apply_options():
+	OS.window_fullscreen = settings.options.fullscreen
+	OS.vsync_enabled = settings.options.vsync
+	OS.window_size = Vector2(settings.options.width, settings.options.height)
+	OS.window_borderless = settings.options.borderless
+	load_language()
+
 func load_language():
 	var file = File.new()
-	var path = game_file + language_dir + settings.general.language + ".conf"
+	var path = game_file + language_dir + settings.options.language + ".conf"
 	if file.file_exists(path):
 		language.load(path)
 	else:
@@ -89,6 +103,10 @@ func load_language():
 func rename_all_children(node: Node, section: String):
 	var children = node.get_children()
 	for child in children:
+		if child.name[0] == "*":
+			continue
 		var text = language.get_value(section, child.name)
 		if text != null:
 			child.text = text
+		else:
+			printerr("no name found for '", section, "/", child.name, "'")
