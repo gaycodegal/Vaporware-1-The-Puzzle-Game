@@ -155,7 +155,7 @@ material/0 = ExtResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
 
 [node name="BoundedStage" parent="." instance=ExtResource( 2 )]
-title = "Saving Throw"
+title_key = "3"
 
 [node name="GoalBox" parent="." instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0 )

@@ -366,6 +366,7 @@ func impulse(vector_towards, power, time):
 func on_win():
 	did_win = true
 	show_message("You solved the puzzle!!!", 5)
+	
 
 # THROW STUFF
 func throwing(delta):
@@ -385,4 +386,4 @@ func show_message(text, time):
 
 func message_done():
 	if did_win:
-		get_tree().change_scene("res://puzzles/Menus/DebugMenu.tscn")
+		Globals.advance_level()

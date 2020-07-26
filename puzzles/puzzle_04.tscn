@@ -154,7 +154,7 @@ material/0 = ExtResource( 3 )
 [node name="ButtonPillar" parent="." instance=ExtResource( 7 )]
 
 [node name="BoundedStage" parent="." instance=ExtResource( 2 )]
-title = "1312"
+title_key = "4"
 
 [node name="mysterious-bowl" type="MeshInstance" parent="."]
 transform = Transform( 2.2, 0, 0, 0, -9.61651e-08, -2.2, 0, 2.2, -9.61651e-08, 0, 6, -11 )

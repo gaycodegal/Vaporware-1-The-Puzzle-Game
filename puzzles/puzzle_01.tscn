@@ -148,5 +148,4 @@ mesh = ExtResource( 4 )
 material/0 = ExtResource( 3 )
 
 [node name="BoundedStage" parent="." instance=ExtResource( 2 )]
-title = "Skulls"
 [connection signal="win" from="ButtonBank" to="Player" method="on_win"]

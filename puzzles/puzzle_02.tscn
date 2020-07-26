@@ -157,7 +157,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
 
 [node name="BoundedStage" parent="." instance=ExtResource( 2 )]
-title = "Ghost Goal"
+title_key = "2"
 
 [node name="Target" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12989, 2.44243, 0.0543969 )
