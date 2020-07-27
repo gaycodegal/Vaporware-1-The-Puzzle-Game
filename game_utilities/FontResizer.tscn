@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://game_utilities/FontResizer.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Roboto/Roboto-Black_36.tres" type="DynamicFont" id=2]
+[ext_resource path="res://fonts/Roboto/Roboto-Black_16.tres" type="DynamicFont" id=3]
+
+[node name="FontResizer" type="Node"]
+script = ExtResource( 1 )
+fonts = [ ExtResource( 3 ), ExtResource( 2 ) ]

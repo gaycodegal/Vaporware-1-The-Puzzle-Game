@@ -10,18 +10,20 @@ var args: Array
 
 var settings = {
 	"general" : {
-		"version": 1,
+		"version": 2,
 	},
 	"game" : {
 		"level": 0,
 	},
 	"options" : {
-		"language": "en",
+		"language": "English",
 		"width": 1600,
 		"height": 900,
 		"fullscreen": false,
 		"vsync": false,
 		"borderless": false,
+		"maximize_window": true,
+		"font_scale": 1,
 	}
 }
 
@@ -94,13 +96,18 @@ func load_config():
 func apply_options():
 	if OS.vsync_enabled != settings.options.vsync:
 		OS.vsync_enabled = settings.options.vsync
-	if OS.window_borderless != settings.options.borderless:
-		OS.window_borderless = settings.options.borderless
 	if OS.window_fullscreen != settings.options.fullscreen:
 		OS.window_fullscreen = settings.options.fullscreen
+	else:
+		if OS.window_borderless != settings.options.borderless:
+			OS.window_borderless = settings.options.borderless
+		if OS.window_maximized != settings.options.maximize_window:
+			OS.window_maximized = settings.options.maximize_window
+
 	var expected_size = Vector2(settings.options.width, settings.options.height)
-	if OS.window_size != expected_size:
+	if not settings.options.fullscreen and not settings.options.maximize_window and OS.window_size != expected_size:
 		OS.window_size = expected_size
+		OS.center_window()
 	load_language()
 
 func load_language():

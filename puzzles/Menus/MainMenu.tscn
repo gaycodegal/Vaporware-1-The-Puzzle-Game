@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://puzzles/Menus/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://game_utilities/FontResizer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/main_theme.tres" type="Theme" id=3]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -33,8 +36,8 @@ margin_bottom = 433.0
 margin_right = 300.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 300, 50 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -45,8 +48,8 @@ margin_top = 54.0
 margin_right = 300.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 300, 50 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Level Select"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -57,8 +60,8 @@ margin_top = 108.0
 margin_right = 300.0
 margin_bottom = 158.0
 rect_min_size = Vector2( 300, 50 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Options"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -69,8 +72,8 @@ margin_top = 162.0
 margin_right = 300.0
 margin_bottom = 212.0
 rect_min_size = Vector2( 300, 50 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Credits"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -81,8 +84,8 @@ margin_top = 216.0
 margin_right = 300.0
 margin_bottom = 266.0
 rect_min_size = Vector2( 300, 50 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -91,57 +94,121 @@ __meta__ = {
 [node name="Options" type="VBoxContainer" parent="ScrollContainer/CenterContainer"]
 visible = false
 margin_left = 362.0
-margin_top = 212.0
+margin_top = 131.0
 margin_right = 662.0
-margin_bottom = 388.0
+margin_bottom = 468.0
 
 [node name="DisplaySizes" type="Label" parent="ScrollContainer/CenterContainer/Options"]
 margin_right = 300.0
-margin_bottom = 14.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Display Sizes"
 
-[node name="ScreenSizes" type="OptionButton" parent="ScrollContainer/CenterContainer/Options"]
-margin_top = 18.0
+[node name="*ScreenSizes" type="OptionButton" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 23.0
 margin_right = 300.0
-margin_bottom = 38.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Custom"
 
 [node name="VSync" type="CheckBox" parent="ScrollContainer/CenterContainer/Options"]
-margin_top = 42.0
+margin_top = 52.0
 margin_right = 300.0
-margin_bottom = 66.0
+margin_bottom = 79.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Enable Vertical Synchronization"
 
 [node name="Fullscreen" type="CheckBox" parent="ScrollContainer/CenterContainer/Options"]
-margin_top = 70.0
+margin_top = 83.0
 margin_right = 300.0
-margin_bottom = 94.0
+margin_bottom = 110.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Fullscreen"
 
 [node name="Borderless" type="CheckBox" parent="ScrollContainer/CenterContainer/Options"]
-margin_top = 98.0
+margin_top = 114.0
 margin_right = 300.0
-margin_bottom = 122.0
-text = "Fullscreen"
+margin_bottom = 141.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Borderless"
+
+[node name="Maximize" type="CheckBox" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 145.0
+margin_right = 300.0
+margin_bottom = 172.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Maximize"
+
+[node name="*HSeparator" type="HSeparator" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 176.0
+margin_right = 300.0
+margin_bottom = 180.0
+
+[node name="FontScale" type="Label" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 184.0
+margin_right = 300.0
+margin_bottom = 203.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Font Scale"
+
+[node name="*Font Scale" type="HSlider" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 207.0
+margin_right = 300.0
+margin_bottom = 223.0
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+
+[node name="*HSeparator2" type="HSeparator" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 176.0
+margin_right = 300.0
+margin_bottom = 180.0
+
+[node name="Languages" type="Label" parent="ScrollContainer/CenterContainer/Options"]
+margin_right = 300.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Languages"
+
+[node name="*Languages" type="OptionButton" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 23.0
+margin_right = 300.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "???"
 
 [node name="Back" type="Button" parent="ScrollContainer/CenterContainer/Options"]
-margin_top = 126.0
+margin_top = 227.0
 margin_right = 300.0
-margin_bottom = 176.0
+margin_bottom = 277.0
 rect_min_size = Vector2( 300, 50 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "Quit"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FontResizer" parent="." instance=ExtResource( 2 )]
 [connection signal="pressed" from="ScrollContainer/CenterContainer/Main/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="ScrollContainer/CenterContainer/Main/LevelSelect" to="." method="_on_Level_Select_pressed"]
 [connection signal="pressed" from="ScrollContainer/CenterContainer/Main/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="ScrollContainer/CenterContainer/Main/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="ScrollContainer/CenterContainer/Main/Quit" to="." method="_on_Quit_pressed"]
-[connection signal="item_selected" from="ScrollContainer/CenterContainer/Options/ScreenSizes" to="." method="_on_ScreenSizes_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/CenterContainer/Options/*ScreenSizes" to="." method="_on_ScreenSizes_item_selected"]
 [connection signal="toggled" from="ScrollContainer/CenterContainer/Options/VSync" to="." method="_on_VSync_toggled"]
 [connection signal="toggled" from="ScrollContainer/CenterContainer/Options/Fullscreen" to="." method="_on_Fullscreen_toggled"]
 [connection signal="toggled" from="ScrollContainer/CenterContainer/Options/Borderless" to="." method="_on_Borderless_toggled"]
+[connection signal="toggled" from="ScrollContainer/CenterContainer/Options/Maximize" to="." method="_on_Maximize_toggled"]
+[connection signal="value_changed" from="ScrollContainer/CenterContainer/Options/*Font Scale" to="." method="_on_Font_Scale_value_changed"]
+[connection signal="item_selected" from="ScrollContainer/CenterContainer/Options/*Languages" to="." method="_on_Language_item_selected"]
 [connection signal="pressed" from="ScrollContainer/CenterContainer/Options/Back" to="." method="_on_Back_pressed"]

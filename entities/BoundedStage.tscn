@@ -3,7 +3,7 @@
 [ext_resource path="res://entities/BoundedStage.gd" type="Script" id=1]
 [ext_resource path="res://materials/checkerboard.tres" type="Material" id=2]
 [ext_resource path="res://fonts/Roboto/Roboto-Black_36.tres" type="DynamicFont" id=3]
-[ext_resource path="res://blender/materials/marble-2-black.jpg" type="Texture" id=4]
+[ext_resource path="res://game_utilities/FontResizer.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PlaneMesh" id=1]
 material = ExtResource( 2 )
@@ -14,6 +14,8 @@ subdivide_depth = 2
 extents = Vector3( 1, 10, 10 )
 
 [sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+flags_unshaded = true
 
 [sub_resource type="PlaneMesh" id=4]
 
@@ -79,18 +81,11 @@ material/0 = null
 size = Vector2( 300, 300 )
 transparent_bg = true
 handle_input_locally = false
-msaa = 2
+msaa = 4
 usage = 1
 render_target_v_flip = true
 render_target_clear_mode = 1
 render_target_update_mode = 1
-
-[node name="TextureRect" type="TextureRect" parent="Viewport"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 1748.0
-margin_bottom = 1748.0
-texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="Viewport"]
 anchor_right = 1.0
@@ -101,3 +96,6 @@ custom_fonts/font = ExtResource( 3 )
 text = "testymctestface"
 align = 1
 valign = 1
+autowrap = true
+
+[node name="FontResizer" parent="." instance=ExtResource( 4 )]

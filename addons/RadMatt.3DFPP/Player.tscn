@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://addons/RadMatt.3DFPP/Player.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Roboto/Roboto-Black_16.tres" type="DynamicFont" id=2]
 [ext_resource path="res://fonts/Roboto/Roboto-Black_36.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/main_theme.tres" type="Theme" id=4]
 
 [sub_resource type="CapsuleMesh" id=1]
 radius = 0.6
@@ -169,11 +171,18 @@ enabled = true
 cast_to = Vector3( 0, -0.5, 0 )
 
 [node name="FPS" type="Label" parent="."]
-margin_left = 1292.0
-margin_top = 831.0
-margin_right = 1365.0
-margin_bottom = 845.0
-rect_scale = Vector2( 4, 4 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -110.0
+margin_top = -54.0
+margin_right = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 3 )
 align = 2
 valign = 1
 script = SubResource( 4 )
@@ -189,6 +198,7 @@ margin_left = 26.0
 margin_top = 22.0
 margin_right = 378.0
 margin_bottom = 51.0
+theme = ExtResource( 4 )
 max_value = 250.0
 step = 2.0
 script = SubResource( 6 )
@@ -200,13 +210,30 @@ __meta__ = {
 anchor_top = 0.365
 anchor_right = 1.0
 anchor_bottom = 0.426
+grow_vertical = 2
 custom_fonts/font = ExtResource( 3 )
 align = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Timer" type="Timer" parent="message"]
+
+[node name="interaction_text" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 320, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "interaction"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="interactions" type="CenterContainer" parent="."]
 anchor_right = 1.0
@@ -218,23 +245,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="interaction_text" type="Label" parent="interactions"]
-margin_left = 765.0
-margin_top = 443.0
-margin_right = 834.0
-margin_bottom = 457.0
-text = "interaction"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="pointer" type="ColorRect" parent="interactions"]
-margin_left = 796.0
-margin_top = 446.0
-margin_right = 804.0
-margin_bottom = 454.0
+margin_left = 508.0
+margin_top = 296.0
+margin_right = 516.0
+margin_bottom = 304.0
 rect_min_size = Vector2( 8, 8 )
 mouse_filter = 2
 size_flags_horizontal = 0

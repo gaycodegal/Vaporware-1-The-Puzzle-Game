@@ -58,6 +58,28 @@ extents = Vector3( 0.483239, 0.695562, 0.491112 )
 
 [node name="Room_01" type="Node"]
 
+[node name="CountdownTimer" type="Label" parent="."]
+anchor_left = 0.504
+anchor_top = 0.136
+anchor_right = 0.504
+anchor_bottom = 0.136
+margin_left = -106.496
+margin_top = -21.6
+margin_right = 98.304
+margin_bottom = 21.4
+grow_horizontal = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 12 )
+text = "hewwo"
+align = 1
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+hang_time = 1.0
+freethrow_ball = NodePath("../FreeThrowBall")
+
 [node name="Player" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0959454, 7.7763 )
 
@@ -162,21 +184,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0 )
 
 [node name="Goal" parent="GoalBox" instance=ExtResource( 9 )]
 transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.0371065, 0 )
-
-[node name="CountdownTimer" type="Label" parent="."]
-anchor_left = 0.4
-anchor_top = 0.1
-anchor_right = 0.6
-anchor_bottom = 0.161
-custom_fonts/font = ExtResource( 12 )
-text = "hewwo"
-align = 1
-script = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-hang_time = 1.0
-freethrow_ball = NodePath("../FreeThrowBall")
 
 [node name="FreeThrowBall" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.5, 0 )
