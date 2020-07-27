@@ -9,6 +9,8 @@
 [ext_resource path="res://puzzles/01/button_bank.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Environment" id=1]
+background_mode = 1
+background_color = Color( 1, 0, 0.494118, 1 )
 ambient_light_color = Color( 0.866667, 0.576471, 0.745098, 1 )
 fog_height_min = 0.0
 fog_height_max = 100.0

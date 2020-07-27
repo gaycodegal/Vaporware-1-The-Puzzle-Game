@@ -24,7 +24,7 @@ func _on_Level_Select_pressed():
 
 
 func _on_Credits_pressed():
-	printerr("can't do credits yet")
+	get_tree().change_scene("res://puzzles/Menus/Credits.tscn")
 
 
 func _on_Quit_pressed():

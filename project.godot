@@ -106,6 +106,5 @@ quit={
 
 quality/shadow_atlas/size=2048
 quality/shadows/filter_mode=2
-environment/default_clear_color=Color( 1, 0, 0.494118, 1 )
 quality/filters/msaa=2
 environment/default_environment="res://default_env.tres"
