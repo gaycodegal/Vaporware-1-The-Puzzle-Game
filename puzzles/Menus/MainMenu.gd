@@ -12,7 +12,11 @@ func hide_all():
 
 func _process(delta):
 	if Input.is_action_pressed("quit"):
-		get_tree().quit()
+		if get_node("ScrollContainer/CenterContainer/Main").visible:
+			get_tree().quit()
+		else: 
+			Input.action_release("quit")
+			_on_Back_pressed()
 
 
 func _on_Play_pressed():
