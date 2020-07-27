@@ -1,11 +1,11 @@
 extends Control
 
 func _ready():
-	OS.set_window_title(Globals.language.get_value("main_menu", "title", ""))
 	translate()
 	set_up_options()
 
 func translate():
+	OS.set_window_title(Globals.language.get_value("main_menu", "title", ""))
 	Globals.rename_all_children(get_node("ScrollContainer/CenterContainer/Main"), "main_menu")
 	Globals.rename_all_children(get_node("ScrollContainer/CenterContainer/Options"), "main_menu")
 
@@ -27,7 +27,7 @@ func _on_Play_pressed():
 
 
 func _on_Level_Select_pressed():
-	get_tree().change_scene("res://puzzles/Menus/DebugMenu.tscn")
+	get_tree().change_scene("res://puzzles/Menus/LevelSelect.tscn")
 
 
 func _on_Credits_pressed():
