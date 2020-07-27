@@ -28,6 +28,10 @@ puzzles/puzzle_04.tscn is the fourth level. No hints provided.
 
 puzzles/puzzle_05.tscn is the fifth level. It's a maze, figure out how to solve it ;)
 
+# Adding Levels
+ 
+See [game_utilities/Globals.gd](./game_utilities/Globals.gd) to add a level to the list of levels.
+
 # License
 
 Licenses for various things used
