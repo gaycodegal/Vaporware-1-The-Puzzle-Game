@@ -1,0 +1,24 @@
+# Game Credits
+
+Levels 1-5 Sarah Oro
+Levels 5-10 Name
+
+# Licensed Works
+
+
+## 3D FPP Interaction Template
+
+Copyright (c) 2018 TheRadMatt, MIT License
+
+
+## EverythingLibrary_Animals.zip
+
+LICENSE
+Software applications: MIT License (2020)
+Creative: Creative Commons Attribution 4.0 International License
+
+Short version: credit “Everything Library © David OReilly” somewhere when you release things. If posting work to social media you can tag me if you like… no pressure.
+
+## Textures
+
+Got a marble texture (public domain) courtesy photos-public-domain.com

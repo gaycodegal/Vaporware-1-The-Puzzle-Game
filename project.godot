@@ -27,11 +27,6 @@ Globals="*res://game_utilities/Globals.gd"
 
 settings/fps/force_fps=60
 
-[display]
-
-window/size/width=1600
-window/size/height=900
-
 [editor]
 
 main_run_args="--overwrite-bad-values"

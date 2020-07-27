@@ -75,7 +75,7 @@ func _process(d):
 #######################################################################################################
 # INTERACTIONS
 	if Input.is_action_pressed("quit"):
-		get_tree().quit()
+		Globals.tryToQuit()
 	if $Yaw/Camera/InteractionRay.is_colliding():
 		var x = $Yaw/Camera/InteractionRay.get_collider()
 		if x.has_method("pick_up") and not x.picked_up:

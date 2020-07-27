@@ -59,6 +59,13 @@ func partial_save_config(section: String):
 		config.set_value(section, key, section_map[key])
 	config.save(settings_path)
 	
+func tryToQuit():
+	Input.action_release("quit")
+	if args.has("--escape-exits"):
+		get_tree().quit()
+	else:
+		get_tree().change_scene("res://puzzles/Menus/MainMenu.tscn")
+
 func advance_level():
 	settings.game.level += 1
 	settings.game.level %= levels.size()
@@ -85,10 +92,15 @@ func load_config():
 			section_map[key] = config.get_value(section, key, section_map[key])
 			
 func apply_options():
-	OS.window_fullscreen = settings.options.fullscreen
-	OS.vsync_enabled = settings.options.vsync
-	OS.window_size = Vector2(settings.options.width, settings.options.height)
-	OS.window_borderless = settings.options.borderless
+	if OS.vsync_enabled != settings.options.vsync:
+		OS.vsync_enabled = settings.options.vsync
+	if OS.window_borderless != settings.options.borderless:
+		OS.window_borderless = settings.options.borderless
+	if OS.window_fullscreen != settings.options.fullscreen:
+		OS.window_fullscreen = settings.options.fullscreen
+	var expected_size = Vector2(settings.options.width, settings.options.height)
+	if OS.window_size != expected_size:
+		OS.window_size = expected_size
 	load_language()
 
 func load_language():

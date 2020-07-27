@@ -18,16 +18,16 @@ __meta__ = {
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="ScrollContainer"]
-margin_right = 1600.0
-margin_bottom = 900.0
+margin_right = 1024.0
+margin_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Main" type="VBoxContainer" parent="ScrollContainer/CenterContainer"]
-margin_left = 650.0
-margin_top = 317.0
-margin_right = 950.0
-margin_bottom = 583.0
+margin_left = 362.0
+margin_top = 167.0
+margin_right = 662.0
+margin_bottom = 433.0
 
 [node name="Play" type="Button" parent="ScrollContainer/CenterContainer/Main"]
 margin_right = 300.0
@@ -90,10 +90,10 @@ __meta__ = {
 
 [node name="Options" type="VBoxContainer" parent="ScrollContainer/CenterContainer"]
 visible = false
-margin_left = 650.0
-margin_top = 362.0
-margin_right = 950.0
-margin_bottom = 538.0
+margin_left = 362.0
+margin_top = 212.0
+margin_right = 662.0
+margin_bottom = 388.0
 
 [node name="DisplaySizes" type="Label" parent="ScrollContainer/CenterContainer/Options"]
 margin_right = 300.0
