@@ -52,7 +52,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GraphicsOptions" type="Button" parent="ScrollContainer/CenterContainer/Main"]
+[node name="Options" type="Button" parent="ScrollContainer/CenterContainer/Main"]
 margin_top = 108.0
 margin_right = 300.0
 margin_bottom = 158.0
@@ -137,7 +137,7 @@ __meta__ = {
 }
 [connection signal="pressed" from="ScrollContainer/CenterContainer/Main/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="ScrollContainer/CenterContainer/Main/LevelSelect" to="." method="_on_Level_Select_pressed"]
-[connection signal="pressed" from="ScrollContainer/CenterContainer/Main/GraphicsOptions" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="ScrollContainer/CenterContainer/Main/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="ScrollContainer/CenterContainer/Main/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="ScrollContainer/CenterContainer/Main/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="item_selected" from="ScrollContainer/CenterContainer/Options/ScreenSizes" to="." method="_on_ScreenSizes_item_selected"]
