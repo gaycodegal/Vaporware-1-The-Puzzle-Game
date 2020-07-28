@@ -3,6 +3,7 @@ extends Control
 func _ready():
 	translate()
 	set_up_options()
+	$ScrollContainer/CenterContainer/Main/Play.grab_focus()
 
 func translate():
 	OS.set_window_title(Globals.language.get_value("main_menu", "title", ""))
@@ -41,11 +42,13 @@ func _on_Quit_pressed():
 func _on_Options_pressed():
 	hide_all()
 	get_node("ScrollContainer/CenterContainer/Options").visible = true
+	$"ScrollContainer/CenterContainer/Options/*ScreenSizes".grab_focus()
 
 
 func _on_Back_pressed():
 	hide_all()
 	get_node("ScrollContainer/CenterContainer/Main").visible = true
+	$ScrollContainer/CenterContainer/Main/Options.grab_focus()	
 
 func set_up_options():
 	list_screen_sizes()
