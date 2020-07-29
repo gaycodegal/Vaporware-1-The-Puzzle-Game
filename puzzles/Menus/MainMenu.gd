@@ -21,6 +21,9 @@ func _process(delta):
 		else: 
 			Input.action_release("quit")
 			_on_Back_pressed()
+	elif Input.is_action_pressed("ui_cancel"):
+		Input.action_release("ui_cancel")
+		_on_Back_pressed()
 
 
 func _on_Play_pressed():

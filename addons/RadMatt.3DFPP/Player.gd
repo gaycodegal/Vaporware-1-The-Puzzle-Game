@@ -38,6 +38,8 @@ var yaw = 0
 var pitch = 0
 var is_moving = false
 var view_sensitivity = 0.15
+var speedMultiplier = 1
+var turnMultiplier = 3
 
 var look_vector = Vector3()
 
@@ -79,7 +81,7 @@ func _process(d):
 	if $Yaw/Camera/InteractionRay.is_colliding():
 		var x = $Yaw/Camera/InteractionRay.get_collider()
 		if x.has_method("pick_up") and not x.picked_up:
-			$interaction_text.set_text("[F]  Pick up: " + x.get_name())
+			$interaction_text.set_text("[E]  Pick up: " + x.get_name())
 			$interactions/pointer.visible = false
 		elif x.has_method("interact"):
 			$interaction_text.set_text("[E]  Interact with: " + x.get_name())
@@ -114,19 +116,36 @@ func _physics_process(delta): #IS PLAYER MOVING NORMALLY OR ON LADDER?
 var direction = Vector3()
 func _process_movements(delta):
 
-	var up = Input.is_action_pressed("ui_up")
-	var down = Input.is_action_pressed("ui_down")
-	var left = Input.is_action_pressed("ui_left")
-	var right = Input.is_action_pressed("ui_right")
+	var up = Input.is_action_pressed("up")
+	var down = Input.is_action_pressed("down")
+	var left = Input.is_action_pressed("left")
+	var right = Input.is_action_pressed("right")
 
 	var jump = Input.is_action_pressed("jump")
 
 	var sprint = Input.is_action_pressed("sprint")
 	var walk = Input.is_action_pressed("walk")
+	
+	var deadZone = 0.3
+	var left_analog_axis = Vector2(Input.get_joy_axis(0, JOY_AXIS_0), Input.get_joy_axis(0, JOY_AXIS_1))
+	var right_analog_axis = Vector2(Input.get_joy_axis(0, JOY_AXIS_2), Input.get_joy_axis(0, JOY_AXIS_3))
+
+
+#$print(h_axis, " ", v_axis)
 
 	var aim = $Yaw/Camera.get_camera_transform().basis
 
 	direction = Vector3()
+
+	if Input.get_connected_joypads().size() > 0:
+		if abs(left_analog_axis.length()) >= deadZone :
+			direction += aim[0] * ( speedMultiplier * clamp(left_analog_axis.x,-1,1)) 
+			direction += aim[2] * ( speedMultiplier * clamp(left_analog_axis.y,-1,1)) 
+		if abs(right_analog_axis.length()) >= deadZone :
+			yaw = fmod(yaw - (turnMultiplier * clamp(right_analog_axis.x,-1,1)), 360)
+			pitch = max(min(pitch - (turnMultiplier * clamp(right_analog_axis.y,-1,1)), 89), -89)
+			$Yaw.rotation = Vector3(0, deg2rad(yaw), 0)
+			$Yaw/Camera.rotation = Vector3(deg2rad(pitch), 0, 0)
 
 	if up:
 		direction -= aim[2]
@@ -136,6 +155,8 @@ func _process_movements(delta):
 		direction -= aim[0]
 	if right:
 		direction += aim[0]
+
+	
 
 	if up or right or left or down: # IS MOVING?
 		if posture_state == STAND:
@@ -293,7 +314,7 @@ func _input(event):
 		get_tree().reload_current_scene()
 
 	# If already carries an object - release it, otherwise (if ray is colliding) pick an object up
-	if Input.is_action_just_pressed("pick_up"):
+	if Input.is_action_just_pressed("interact"):
 		if carried_object != null:
 			carried_object.pick_up(self)
 		else:
@@ -387,3 +408,8 @@ func show_message(text, time):
 func message_done():
 	if did_win:
 		Globals.advance_level()
+
+func normal_axis(axis: float):
+	if axis < .1:
+		return 0
+	return axis
