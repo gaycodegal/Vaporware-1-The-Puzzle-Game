@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://puzzles/Menus/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://game_utilities/FontResizer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://fonts/main_theme.tres" type="Theme" id=3]
 [ext_resource path="res://game_utilities/FocusManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://blender/materials/marble-2-black.jpg" type="Texture" id=5]
+[ext_resource path="res://fonts/circle_theme.tres" type="Theme" id=6]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -24,6 +25,92 @@ stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = -244.0
+margin_right = 329.0
+margin_bottom = 85.0
+rect_rotation = 45.0
+color = Color( 0.00392157, 0.733333, 0.647059, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Circle" type="Button" parent="."]
+margin_left = 48.2337
+margin_top = 85.5715
+margin_right = 148.234
+margin_bottom = 185.571
+theme = ExtResource( 6 )
+disabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Circle"]
+margin_left = 96.927
+margin_top = -54.2791
+margin_right = 136.927
+margin_bottom = -14.2791
+
+[node name="Circle4" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 30.1407
+margin_top = -230.0
+margin_right = 230.141
+margin_bottom = -30.0
+theme = ExtResource( 6 )
+disabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Circle4"]
+margin_left = 42.6479
+margin_top = 121.482
+margin_right = 82.6479
+margin_bottom = 161.482
+
+[node name="Circle2" type="ColorRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -230.0
+margin_top = 30.0
+margin_right = -30.0
+margin_bottom = 230.0
+theme = ExtResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="Circle2"]
+margin_left = 142.16
+margin_top = 16.8007
+margin_right = 182.16
+margin_bottom = 56.8007
+color = Color( 0.803922, 0.470588, 0.92549, 1 )
+
+[node name="Circle3" type="ColorRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -230.0
+margin_top = -230.0
+margin_right = -80.0
+margin_bottom = -30.0
+rect_rotation = 45.0
+rect_pivot_offset = Vector2( 100, 100 )
+theme = ExtResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="Circle3"]
+margin_left = 168.146
+margin_top = 45.6919
+margin_right = 208.146
+margin_bottom = 85.6919
+color = Color( 0.803922, 0.470588, 0.92549, 1 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 anchor_right = 1.0
