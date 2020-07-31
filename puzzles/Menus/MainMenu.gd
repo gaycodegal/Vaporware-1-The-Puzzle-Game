@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	translate()
 	set_up_options()
 	$ScrollContainer/CenterContainer/Main/Play.grab_focus()

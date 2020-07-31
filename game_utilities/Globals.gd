@@ -43,6 +43,7 @@ func get_arg_value(name, default):
 	return args[index + 1]
 
 func _ready():
+	print("loaded")
 	args = Array(OS.get_cmdline_args())
 	load_config()
 	apply_options()
