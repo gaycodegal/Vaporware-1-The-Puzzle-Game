@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://puzzles/01/flipping_skull.tscn" type="PackedScene" id=1]
 [ext_resource path="res://puzzles/01/button_bank.gd" type="Script" id=2]
+[ext_resource path="res://sounds/effects/BPSynth_C.wav" type="AudioStream" id=3]
 
 [node name="ButtonBank" type="Spatial"]
 script = ExtResource( 2 )
@@ -110,3 +111,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
 
 [node name="FlippingSkull3" parent="Bank3/Spatial3" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )

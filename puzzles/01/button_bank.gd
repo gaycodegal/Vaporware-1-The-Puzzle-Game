@@ -16,6 +16,13 @@ func _ready():
 				setState(x, y, z)
 
 func flipped(x, y, z):
+	# figured I'd make the audio higher based on the number of skulls flipped
+	# since number of skulls is [4,7] I shift in range [0, 3], 
+	# inverted so higher pitch closest to (1,1,1) (where 7 skulls flipped)
+	var pitch_shift = float(3 - (abs(x - 1) + abs(y - 1) + abs(z - 1)))
+	$AudioStreamPlayer.pitch_scale = 1 + pitch_shift / 3
+	$AudioStreamPlayer.play(0)
+	
 	var deltas = [-1, 1]
 	var skull
 	for d in deltas:
