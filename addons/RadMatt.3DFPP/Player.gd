@@ -385,9 +385,9 @@ func impulse(vector_towards, power, time):
 		velocity += vector_towards * Vector3(power, power, power)
 
 func on_win():
+	$AudioStreamPlayer.play(0)
 	did_win = true
 	show_message("You solved the puzzle!!!", 5)
-	
 
 # THROW STUFF
 func throwing(delta):

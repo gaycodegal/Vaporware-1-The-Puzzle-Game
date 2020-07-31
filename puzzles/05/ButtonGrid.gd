@@ -66,7 +66,7 @@ func _ready():
 			
 
 func distance_ok(a, b):
-	return abs(a[0]-b[0]) + abs(a[1]-b[1]) <= 1
+	return abs(a[0]-b[0]) + abs(a[1]-b[1]) == 1
 
 func interact(row, col, player):
 	if last_pressed == null:
@@ -76,17 +76,27 @@ func interact(row, col, player):
 	var current = Vector2(row, col)
 	var shouldNull = not distance_ok(last_pressed, current)
 	if shouldNull:
-		print("distance bad")
 		return
 	shouldNull = shouldNull or not maze.is_allowed(last_pressed, current)
 	if shouldNull:
-		print("not allowed")
 		return
 	shouldNull = shouldNull or not get_node("links").link(last_pressed, current)
 	if shouldNull:
-		print("no link")
 		return
 	if not shouldNull:
+		# we want to play C,E,F,G
+		# formula's ok but I may have borked it, doesn't sound quite right
+		var diff:float
+		if last_pressed[1] < current[1]: #North
+			diff = 0.0
+		elif last_pressed[0] < current[0]: #East
+			diff = 2.0
+		elif last_pressed[1] > current[1]: #South
+			diff = 3.0
+		elif last_pressed[0] > current[0]: #Westest
+			diff = 4.0
+		$AudioStreamPlayer.pitch_scale = 1.0 + diff/8.0
+		$AudioStreamPlayer.play(0)
 		last_pressed = current
 		if current == maze.end_pos:
 			emit_signal("win")

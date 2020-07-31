@@ -6,12 +6,17 @@ export(float) var max_scale
 export(float) var min_scale
 var target: Spatial
 var camera: Spatial
+var has_sounded = false
+
 func _ready():
 	target = get_node(target_to_grow_path)
 	camera = get_viewport().get_camera()
 	
 func _physics_process(delta):
 	if target.scale.x <= min_scale:
+		if not has_sounded:
+			has_sounded = true
+			$AudioStreamPlayer.play(0)
 		return #lock once small
 	#var invisibility_ray = get_world().direct_space_state.intersect_ray(camera.global_transform.origin, target.global_transform.origin, [target])
 	var target_pos = target.to_global(Vector3.ZERO)

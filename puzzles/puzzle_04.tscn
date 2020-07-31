@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://entities/Ceiling_Lamp/ceiling_lamp.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://entities/BoundedStage.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://entities/puzzle_objects/pointer.tres" type="ArrayMesh" id=8]
 [ext_resource path="res://puzzles/04/SpinPointer.gd" type="Script" id=9]
 [ext_resource path="res://entities/puzzle_objects/Trigger/TriggerPointer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sounds/effects/BPSynth_C.wav" type="AudioStream" id=11]
 [ext_resource path="res://entities/puzzle_objects/mysterious-bowl.tres" type="ArrayMesh" id=13]
 [ext_resource path="res://entities/puzzle_objects/hint-oid.tres" type="ArrayMesh" id=14]
 
@@ -172,6 +173,9 @@ mesh = ExtResource( 8 )
 material/0 = null
 script = ExtResource( 9 )
 passcode = "1312"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="pointer"]
+stream = ExtResource( 11 )
 
 [node name="Rock" parent="." instance=ExtResource( 10 )]
 transform = Transform( -0.3, 0, -2.62268e-08, -5.11423e-08, -2.55712e-08, 0.585, -2.84232e-15, 0.743797, 3.25124e-08, 0, 2.68391, 0 )

@@ -63,6 +63,7 @@ func partial_save_config(section: String):
 	
 func tryToQuit():
 	Input.action_release("quit")
+	Input.action_release("ui_cancel")
 	if args.has("--escape-exits"):
 		get_tree().quit()
 	else:

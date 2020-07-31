@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://addons/RadMatt.3DFPP/Player.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Roboto/Roboto-Black_16.tres" type="DynamicFont" id=2]
 [ext_resource path="res://fonts/Roboto/Roboto-Black_36.tres" type="DynamicFont" id=3]
 [ext_resource path="res://fonts/main_theme.tres" type="Theme" id=4]
+[ext_resource path="res://sounds/effects/win_sound_GFMLead.wav" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleMesh" id=1]
 radius = 0.6
@@ -256,5 +257,8 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 size_flags_stretch_ratio = 0.0
 color = Color( 1, 1, 1, 0.631373 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 [connection signal="animation_finished" from="crouching" to="." method="_on_crouching_animation_finished"]
 [connection signal="timeout" from="message/Timer" to="." method="message_done"]

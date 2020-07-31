@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://puzzles/05/ButtonGrid.gd" type="Script" id=1]
 [ext_resource path="res://materials/marble_material_inverted.tres" type="Material" id=2]
 [ext_resource path="res://puzzles/05/ButtonInstance.gd" type="Script" id=3]
 [ext_resource path="res://puzzles/05/links.gd" type="Script" id=4]
 [ext_resource path="res://puzzles/05/CubeMultimesh.tres" type="MultiMesh" id=5]
+[ext_resource path="res://sounds/effects/ECurrents_C.wav" type="AudioStream" id=6]
 
 [sub_resource type="CubeMesh" id=1]
 material = ExtResource( 2 )
@@ -22,3 +23,6 @@ button_script = ExtResource( 3 )
 [node name="links" type="MultiMeshInstance" parent="."]
 multimesh = ExtResource( 5 )
 script = ExtResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )

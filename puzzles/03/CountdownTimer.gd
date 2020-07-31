@@ -20,12 +20,15 @@ func _ready():
 	reset()
 
 func reset():
+	$AudioStreamPlayer.stop()
 	time_left = time + hang_time
 
 func _process(delta):
 	time_left -= delta * speed
 	if (time_left >= 0 or not ok_to_reset) and time_left <= hang_time:
 		self.text = "0.0"
+		if not $AudioStreamPlayer.playing:
+			$AudioStreamPlayer.play(0)
 		target.good_to_throw = false
 		target.good_to_land = true
 	else:
