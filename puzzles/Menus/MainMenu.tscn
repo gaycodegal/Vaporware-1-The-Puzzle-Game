@@ -268,7 +268,6 @@ margin_right = 300.0
 margin_bottom = 365.0
 min_value = 1.0
 max_value = 10.0
-step = 1.0
 value = 1.0
 
 [node name="*HSeparator2" type="HSeparator" parent="ScrollContainer/CenterContainer/Options"]
