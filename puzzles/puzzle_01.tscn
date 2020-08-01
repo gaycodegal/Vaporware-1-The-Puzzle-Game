@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://entities/Ceiling_Lamp/ceiling_lamp.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://entities/Ceiling_Lamp/ceiling_lamp.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://entities/BoundedStage.tscn" type="PackedScene" id=2]
 [ext_resource path="res://materials/marble_material.tres" type="Material" id=3]
 [ext_resource path="res://entities/Column/column.tres" type="ArrayMesh" id=4]
