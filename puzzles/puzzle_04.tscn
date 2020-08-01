@@ -37,13 +37,16 @@ albedo_texture = ExtResource( 5 )
 roughness = 0.0
 uv1_scale = Vector3( 3, 2, 1 )
 
-[sub_resource type="SpatialMaterial" id=4]
-roughness = 0.0
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.483239, 0.695562, 0.491112 )
 
 [sub_resource type="SpatialMaterial" id=5]
 roughness = 0.0
 
 [sub_resource type="SpatialMaterial" id=6]
+roughness = 0.0
+
+[sub_resource type="SpatialMaterial" id=7]
 roughness = 0.0
 emission_enabled = true
 emission = Color( 0.985229, 1, 0.527344, 1 )
@@ -51,11 +54,8 @@ emission_energy = 1.0
 emission_operator = 0
 emission_on_uv2 = false
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=8]
 roughness = 0.0
-
-[sub_resource type="BoxShape" id=8]
-extents = Vector3( 0.483239, 0.695562, 0.491112 )
 
 [node name="Room_01" type="Node"]
 
@@ -82,14 +82,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0800302, 8.62056, -4.97885 
 [node name="Ceiling_Lamp" type="MeshInstance" parent="Ceiling_Lamp2"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -1.004, 0 )
 mesh = ExtResource( 1 )
-material/0 = SubResource( 4 )
-material/1 = SubResource( 5 )
-material/2 = SubResource( 6 )
-material/3 = SubResource( 7 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Ceiling_Lamp2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.699918, 0 )
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="light_2" type="OmniLight" parent="Ceiling_Lamp2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0249788, -2.11305, -0.0399599 )
@@ -104,14 +104,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0800302, 8.62056, 5.99616 )
 [node name="Ceiling_Lamp" type="MeshInstance" parent="Ceiling_Lamp1"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -1.00401, 0 )
 mesh = ExtResource( 1 )
-material/0 = SubResource( 4 )
-material/1 = SubResource( 5 )
-material/2 = SubResource( 6 )
-material/3 = SubResource( 7 )
+material/0 = SubResource( 5 )
+material/1 = SubResource( 6 )
+material/2 = SubResource( 7 )
+material/3 = SubResource( 8 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ceiling_Lamp1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.699918, 0 )
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="light_1" type="OmniLight" parent="Ceiling_Lamp1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0800302, -2.08603, 0.0658698 )
