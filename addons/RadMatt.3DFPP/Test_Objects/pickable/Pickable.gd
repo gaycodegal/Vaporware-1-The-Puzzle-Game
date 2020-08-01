@@ -6,6 +6,14 @@ signal win
 var picked_up
 var in_goal
 var holder
+export(String) var name_key = "Ball"
+var my_name
+
+func _ready():
+	my_name = Globals.language.get_value("puzzle_items", name_key, name_key)
+
+func get_name():
+	return my_name
 
 func pick_up(player):
 	holder = player

@@ -3,6 +3,7 @@ extends StaticBody
 
 var tween: Tween
 var target: MeshInstance
+var my_name
 export(bool) var is_flipped = false
 var button_bank = null
 var x: int
@@ -20,12 +21,11 @@ func _exit_tree():
 		button_bank = null
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
 	tween = get_node("tween")
 	target = get_node("target")
 	if is_flipped:
 		self.rotation_degrees = desired_rotation()
+	my_name = Globals.language.get_value("puzzle_items", "Skull", "")
 
 func desired_rotation():
 	return Vector3(180,0,0) if is_flipped else Vector3.ZERO
@@ -46,7 +46,7 @@ func slow_flip():
 	tween.start()
 	
 func get_name():
-	return "Skull"
+	return my_name
 
 func interact(relate):
 	if not tween.is_active():

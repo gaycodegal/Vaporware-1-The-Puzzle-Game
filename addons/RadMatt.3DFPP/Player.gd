@@ -62,12 +62,19 @@ const MAX_SLOPE_ANGLE = 60
 #stair variables
 const MAX_STAIR_SLOPE = 20
 const STAIR_JUMP_HEIGHT = 6
-
+var PICK_UP_TEXT
+var INTERACT_TEXT
+var WIN_TEXT
+var STAND_TEXT
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_node("ProgressBar").visible = false
+	PICK_UP_TEXT = Globals.language.get_value("puzzle_commands", "PickUp", "[E]  %s")
+	INTERACT_TEXT = Globals.language.get_value("puzzle_commands", "Interact", "[E]  %s")
+	WIN_TEXT = Globals.language.get_value("puzzle_commands", "Win", "WIN_TEXT")
+	STAND_TEXT = Globals.language.get_value("puzzle_commands", "BadStand", "STAND_TEXT")
 
 func _exit_tree():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -81,10 +88,10 @@ func _process(d):
 	if $Yaw/Camera/InteractionRay.is_colliding():
 		var x = $Yaw/Camera/InteractionRay.get_collider()
 		if x.has_method("pick_up") and not x.picked_up:
-			$interaction_text.set_text("[E]  Pick up: " + x.get_name())
+			$interaction_text.set_text(PICK_UP_TEXT % x.get_name())
 			$interactions/pointer.visible = false
 		elif x.has_method("interact"):
-			$interaction_text.set_text("[E]  Interact with: " + x.get_name())
+			$interaction_text.set_text(INTERACT_TEXT % x.get_name())
 			$interactions/pointer.visible = false
 		else:
 			$interactions/pointer.visible = true
@@ -355,7 +362,7 @@ func _input(event):
 				$crouching.play_backwards("crouch")
 				move_speed = run_speed
 			else:
-				show_message("I cannot stand here.", 2)
+				show_message(STAND_TEXT, 2)
 
 #######################################################################################################
 # OTHER
@@ -387,7 +394,7 @@ func impulse(vector_towards, power, time):
 func on_win():
 	$AudioStreamPlayer.play(0)
 	did_win = true
-	show_message("You solved the puzzle!!!", 5)
+	show_message(WIN_TEXT, 5)
 
 # THROW STUFF
 func throwing(delta):
