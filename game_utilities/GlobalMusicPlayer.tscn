@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://sounds/music/spookyvibes01.tres" type="AudioStream" id=1]
+[ext_resource path="res://sounds/music/spookyvibes03.tres" type="AudioStream" id=1]
 [ext_resource path="res://game_utilities/GlobalMusicPlayer.gd" type="Script" id=2]
 
 [node name="GlobalMusicPlayer" type="Node"]
