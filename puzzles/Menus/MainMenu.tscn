@@ -127,9 +127,9 @@ size_flags_vertical = 3
 
 [node name="Main" type="VBoxContainer" parent="ScrollContainer/CenterContainer"]
 margin_left = 362.0
-margin_top = 123.0
+margin_top = 88.0
 margin_right = 662.0
-margin_bottom = 477.0
+margin_bottom = 512.0
 
 [node name="Play" type="Button" parent="ScrollContainer/CenterContainer/Main"]
 margin_right = 300.0
@@ -166,10 +166,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Credits" type="Button" parent="ScrollContainer/CenterContainer/Main"]
+[node name="Controls" type="Button" parent="ScrollContainer/CenterContainer/Main"]
 margin_top = 210.0
 margin_right = 300.0
 margin_bottom = 260.0
+rect_min_size = Vector2( 300, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Controls"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Button" parent="ScrollContainer/CenterContainer/Main"]
+margin_top = 280.0
+margin_right = 300.0
+margin_bottom = 330.0
 rect_min_size = Vector2( 300, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -179,14 +191,14 @@ __meta__ = {
 }
 
 [node name="*HSeparator" type="HSeparator" parent="ScrollContainer/CenterContainer/Main"]
-margin_top = 280.0
-margin_right = 300.0
-margin_bottom = 284.0
-
-[node name="Quit" type="Button" parent="ScrollContainer/CenterContainer/Main"]
-margin_top = 304.0
+margin_top = 350.0
 margin_right = 300.0
 margin_bottom = 354.0
+
+[node name="Quit" type="Button" parent="ScrollContainer/CenterContainer/Main"]
+margin_top = 374.0
+margin_right = 300.0
+margin_bottom = 424.0
 rect_min_size = Vector2( 300, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -311,6 +323,7 @@ scroll_container_path = NodePath("../ScrollContainer")
 [connection signal="pressed" from="ScrollContainer/CenterContainer/Main/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="ScrollContainer/CenterContainer/Main/LevelSelect" to="." method="_on_Level_Select_pressed"]
 [connection signal="pressed" from="ScrollContainer/CenterContainer/Main/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="ScrollContainer/CenterContainer/Main/Controls" to="." method="_on_Controls_pressed"]
 [connection signal="pressed" from="ScrollContainer/CenterContainer/Main/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="ScrollContainer/CenterContainer/Main/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="item_selected" from="ScrollContainer/CenterContainer/Options/*ScreenSizes" to="." method="_on_ScreenSizes_item_selected"]

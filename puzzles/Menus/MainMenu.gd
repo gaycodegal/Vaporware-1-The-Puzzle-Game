@@ -163,3 +163,7 @@ func _on_Language_item_selected(id):
 	Globals.apply_options()
 	translate()
 	Globals.partial_save_config("options")
+
+
+func _on_Controls_pressed():
+	get_tree().change_scene("res://puzzles/Menus/Controls.tscn")
