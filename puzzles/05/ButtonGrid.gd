@@ -40,15 +40,15 @@ func _ready():
 	links.width = width
 	links.height = height
 	var box_shape = BoxShape.new()
-	box_shape.extents = Vector3(mesh_width / 2, mesh_height / 2, mesh_depth / 2)
+	box_shape.extents = Vector3(mesh_width / 2.0, mesh_height / 2.0, mesh_depth / 2.0)
 	#collisionshape.shape.extents = Vector3(width/2, height/2, mesh_depth/2)
 	for col in range(cols):
 		for row in range(rows):
 			var index = col + row * cols
 			var pos = Transform()
 			pos = pos.translated(Vector3(
-				col * space_width - width / 2 + mesh_width / 2,
-				row * space_height - height / 2 + mesh_height/2, 
+				col * space_width - width / 2.0 + mesh_width / 2.0,
+				row * space_height - height / 2.0 + mesh_height/2.0, 
 				0))
 			multimeshinstance.multimesh.set_instance_transform(index, pos)
 			var static_body = StaticBody.new()
