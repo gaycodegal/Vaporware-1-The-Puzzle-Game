@@ -1,25 +1,15 @@
 extends Node
 
 var musics = [
-	"res://sounds/Music/SpookyVibes01.ogg",
-	"res://sounds/Music/SpookyVibes02.ogg",
-	"res://sounds/Music/SpookyVibes03.ogg",
-	"res://sounds/Music/SpookyVibes04.ogg"
+	"res://sounds/music/spookyvibes01.tres",
+	"res://sounds/music/spookyvibes02.tres",
+	"res://sounds/music/spookyvibes03.tres",
+	"res://sounds/music/spookyvibes04.tres"
 ]
 
 func _ready():
 	$Music.stream.loop = false
 	$Music.play(0)
-
-func load_ogg(path):
-	var ogg_file = File.new()
-	ogg_file.open(path, File.READ)
-	var bytes = ogg_file.get_buffer(ogg_file.get_len())
-	var stream = AudioStreamOGGVorbis.new()
-	stream.data = bytes
-	$Music.stream = stream
-	ogg_file.close()
-
 
 func _on_Music_finished():
 	$Music.stop()
@@ -27,6 +17,6 @@ func _on_Music_finished():
 
 func _on_Timer_timeout():
 	$Music.stop()
-	load_ogg(musics[randi() % musics.size()])
+	$Music.stream = load(musics[randi() % musics.size()])
 	$Music.stream.loop = false
 	$Music.play(0)
