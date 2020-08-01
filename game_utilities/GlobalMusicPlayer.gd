@@ -10,7 +10,15 @@ var musics = [
 func _ready():
 	$Music.stream.loop = false
 	$Music.play(0)
-	_on_Timer_timeout()
+
+func load_ogg(path):
+	var ogg_file = File.new()
+	ogg_file.open(path, File.READ)
+	var bytes = ogg_file.get_buffer(ogg_file.get_len())
+	var stream = AudioStreamOGGVorbis.new()
+	stream.data = bytes
+	$Music.stream = stream
+	ogg_file.close()
 
 
 func _on_Music_finished():
@@ -19,6 +27,6 @@ func _on_Music_finished():
 
 func _on_Timer_timeout():
 	$Music.stop()
-	$Music.stream = load(musics[randi() % musics.size()])
+	load_ogg(musics[randi() % musics.size()])
 	$Music.stream.loop = false
 	$Music.play(0)
