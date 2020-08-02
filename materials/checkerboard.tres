@@ -7,6 +7,7 @@ load_path = "res://.import/checkerboard.png-b41fdbea66ed1fbc55af9a4b870dacf0.s3t
 [resource]
 resource_name = "CheckeredMaterial"
 albedo_texture = SubResource( 1 )
+metallic = 0.1
 metallic_specular = 0.6
 roughness = 0.3
 uv1_scale = Vector3( 5, 5, 1 )

@@ -19,10 +19,11 @@ __meta__ = {
 }
 
 [node name="text" type="Label" parent="ScrollContainer"]
-margin_right = 1024.0
-margin_bottom = 600.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
 custom_fonts/font = ExtResource( 2 )
 align = 1
+valign = 1
 autowrap = true

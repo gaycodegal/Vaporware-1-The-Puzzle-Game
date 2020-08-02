@@ -16,8 +16,8 @@
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
-background_color = Color( 0.419608, 0.968627, 0.905882, 1 )
-ambient_light_color = Color( 0.576471, 0.854902, 0.866667, 1 )
+background_color = Color( 0, 0.870588, 0.988235, 1 )
+ambient_light_color = Color( 0.45098, 0.627451, 0.635294, 1 )
 fog_height_min = 0.0
 fog_height_max = 100.0
 ssao_enabled = true

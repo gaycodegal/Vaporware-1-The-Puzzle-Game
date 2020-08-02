@@ -5,7 +5,7 @@
 [ext_resource path="res://fonts/Roboto/Roboto-Black_36.tres" type="DynamicFont" id=3]
 [ext_resource path="res://game_utilities/FocusManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game_utilities/FontResizer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://blender/materials/marble-2-black.jpg" type="Texture" id=6]
+[ext_resource path="res://blender/materials/marble-3-black.jpg" type="Texture" id=6]
 
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0

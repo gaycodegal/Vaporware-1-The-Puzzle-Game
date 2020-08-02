@@ -12,7 +12,7 @@
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
-background_color = Color( 0.643137, 0.419608, 0.968627, 1 )
+background_color = Color( 0.733333, 0, 1, 1 )
 ambient_light_color = Color( 0.811765, 0.576471, 0.866667, 1 )
 fog_height_min = 0.0
 fog_height_max = 100.0
