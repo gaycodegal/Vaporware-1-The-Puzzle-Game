@@ -1,5 +1,7 @@
 extends Control
 
+var ignore_changes = false
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	translate()
@@ -55,6 +57,8 @@ func _on_Back_pressed():
 	$ScrollContainer/CenterContainer/Main/Options.grab_focus()	
 
 func set_up_options():
+	var ignored = ignore_changes
+	ignore_changes = true
 	list_screen_sizes()
 	list_languages()
 	get_node("ScrollContainer/CenterContainer/Options/VSync").pressed = Globals.settings.options.vsync
@@ -62,6 +66,7 @@ func set_up_options():
 	get_node("ScrollContainer/CenterContainer/Options/Borderless").pressed = Globals.settings.options.borderless
 	get_node("ScrollContainer/CenterContainer/Options/Maximize").pressed = Globals.settings.options.maximize_window
 	get_node("ScrollContainer/CenterContainer/Options/*Font Scale").value = Globals.settings.options.font_scale
+	ignore_changes = ignored
 
 func list_screen_sizes():
 	var screen_sizes = get_node("ScrollContainer/CenterContainer/Options/*ScreenSizes")
@@ -84,20 +89,6 @@ func list_screen_sizes():
 	screen_sizes.select(options.find("%d×%d" % [Globals.settings.options.width, Globals.settings.options.height]))
 
 
-func dir_contents(path):
-	var dir = Directory.new()
-	if dir.open(path) == OK:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if dir.current_is_dir():
-				print("Found directory: " + file_name)
-			else:
-				print("Found file: " + file_name)
-			file_name = dir.get_next()
-	else:
-		print("An error occurred when trying to access the path.")
-
 func list_languages():
 	var dir = Directory.new()
 	if dir.open("res://language") == OK:
@@ -117,6 +108,8 @@ func list_languages():
 
 
 func _on_ScreenSizes_item_selected(id):
+	if ignore_changes:
+		return
 	var screen_sizes = get_node("ScrollContainer/CenterContainer/Options/*ScreenSizes")
 	var option_text = screen_sizes.get_item_text(id)
 	var size = option_text.split("×")
@@ -127,36 +120,48 @@ func _on_ScreenSizes_item_selected(id):
 
 
 func _on_VSync_toggled(button_pressed):
+	if ignore_changes:
+		return
 	Globals.settings.options.vsync = button_pressed
 	Globals.apply_options()
 	Globals.partial_save_config("options")
 
 
 func _on_Fullscreen_toggled(button_pressed):
+	if ignore_changes:
+		return
 	Globals.settings.options.fullscreen = button_pressed
 	Globals.apply_options()
 	Globals.partial_save_config("options")
 
 
 func _on_Borderless_toggled(button_pressed):
+	if ignore_changes:
+		return
 	Globals.settings.options.borderless = button_pressed
 	Globals.apply_options()
 	Globals.partial_save_config("options")
 
 
 func _on_Font_Scale_value_changed(value):
+	if ignore_changes:
+		return
 	Globals.settings.options.font_scale = value
 	$FontResizer.resize_all()
 	Globals.partial_save_config("options")
 
 
 func _on_Maximize_toggled(button_pressed):
+	if ignore_changes:
+		return
 	Globals.settings.options.maximize_window = button_pressed
 	Globals.apply_options()
 	Globals.partial_save_config("options")
 
 
 func _on_Language_item_selected(id):
+	if ignore_changes:
+		return
 	var languages = get_node("ScrollContainer/CenterContainer/Options/*Languages")
 	var option_text = languages.get_item_text(id)
 	Globals.settings.options.language = option_text
