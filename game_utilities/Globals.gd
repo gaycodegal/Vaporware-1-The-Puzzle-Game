@@ -10,7 +10,7 @@ var args: Array
 
 var settings = {
 	"general" : {
-		"version": 2,
+		"version": 3,
 	},
 	"game" : {
 		"level": 0,
@@ -22,7 +22,7 @@ var settings = {
 		"fullscreen": false,
 		"vsync": false,
 		"borderless": false,
-		"maximize_window": true,
+		"maximize_window": false,
 		"font_scale": 1,
 	}
 }
@@ -106,7 +106,12 @@ func apply_options():
 		if OS.window_maximized != settings.options.maximize_window:
 			OS.window_maximized = settings.options.maximize_window
 
-	var expected_size = Vector2(settings.options.width, settings.options.height)
+	var max_size = OS.get_screen_size()
+	# having too large of a window is annoying
+	var expected_size = Vector2(
+		min(max_size.x, settings.options.width),
+		min(max_size.y, settings.options.height))
+	OS.min_window_size = Vector2(10, 10)
 	if not settings.options.fullscreen and not settings.options.maximize_window and OS.window_size != expected_size:
 		OS.window_size = expected_size
 		OS.center_window()

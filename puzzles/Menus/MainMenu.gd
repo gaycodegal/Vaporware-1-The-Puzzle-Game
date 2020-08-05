@@ -1,12 +1,13 @@
 extends Control
 
-var ignore_changes = false
+var ignore_changes = true
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	translate()
 	set_up_options()
 	$ScrollContainer/CenterContainer/Main/Play.grab_focus()
+	ignore_changes = false
 
 func translate():
 	OS.set_window_title(Globals.language.get_value("main_menu", "title", ""))
@@ -64,7 +65,6 @@ func set_up_options():
 	get_node("ScrollContainer/CenterContainer/Options/VSync").pressed = Globals.settings.options.vsync
 	get_node("ScrollContainer/CenterContainer/Options/Fullscreen").pressed = Globals.settings.options.fullscreen
 	get_node("ScrollContainer/CenterContainer/Options/Borderless").pressed = Globals.settings.options.borderless
-	get_node("ScrollContainer/CenterContainer/Options/Maximize").pressed = Globals.settings.options.maximize_window
 	get_node("ScrollContainer/CenterContainer/Options/*Font Scale").value = Globals.settings.options.font_scale
 	ignore_changes = ignored
 
@@ -151,14 +151,6 @@ func _on_Font_Scale_value_changed(value):
 	Globals.partial_save_config("options")
 
 
-func _on_Maximize_toggled(button_pressed):
-	if ignore_changes:
-		return
-	Globals.settings.options.maximize_window = button_pressed
-	Globals.apply_options()
-	Globals.partial_save_config("options")
-
-
 func _on_Language_item_selected(id):
 	if ignore_changes:
 		return
@@ -172,3 +164,4 @@ func _on_Language_item_selected(id):
 
 func _on_Controls_pressed():
 	get_tree().change_scene("res://puzzles/Menus/Controls.tscn")
+

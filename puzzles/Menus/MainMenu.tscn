@@ -265,14 +265,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Borderless"
 
-[node name="Maximize" type="CheckButton" parent="ScrollContainer/CenterContainer/Options"]
-margin_top = 234.0
-margin_right = 300.0
-margin_bottom = 266.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Maximize"
-
 [node name="*HSeparator" type="HSeparator" parent="ScrollContainer/CenterContainer/Options"]
 margin_top = 286.0
 margin_right = 300.0
@@ -342,7 +334,6 @@ scroll_container_path = NodePath("../ScrollContainer")
 [connection signal="toggled" from="ScrollContainer/CenterContainer/Options/VSync" to="." method="_on_VSync_toggled"]
 [connection signal="toggled" from="ScrollContainer/CenterContainer/Options/Fullscreen" to="." method="_on_Fullscreen_toggled"]
 [connection signal="toggled" from="ScrollContainer/CenterContainer/Options/Borderless" to="." method="_on_Borderless_toggled"]
-[connection signal="toggled" from="ScrollContainer/CenterContainer/Options/Maximize" to="." method="_on_Maximize_toggled"]
 [connection signal="value_changed" from="ScrollContainer/CenterContainer/Options/*Font Scale" to="." method="_on_Font_Scale_value_changed"]
 [connection signal="item_selected" from="ScrollContainer/CenterContainer/Options/*Languages" to="." method="_on_Language_item_selected"]
 [connection signal="pressed" from="ScrollContainer/CenterContainer/Options/Back" to="." method="_on_Back_pressed"]
