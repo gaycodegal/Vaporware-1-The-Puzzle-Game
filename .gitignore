@@ -1,2 +1,5 @@
 *~
 RELEASE/
+bazel-*
+GodotProject/.import/
+*__pycache__/
