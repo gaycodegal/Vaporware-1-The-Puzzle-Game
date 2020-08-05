@@ -180,6 +180,7 @@ min_scale = 0.4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BallGrowinator"]
 stream = ExtResource( 12 )
+bus = "SFX"
 [connection signal="win" from="Target" to="Player" method="on_win"]
 [connection signal="body_entered" from="GoalBox/Goal" to="Target" method="_on_Goal_body_entered"]
 [connection signal="body_exited" from="GoalBox/Goal" to="Target" method="_on_Goal_body_exited"]

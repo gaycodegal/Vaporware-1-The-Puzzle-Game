@@ -83,6 +83,7 @@ freethrow_ball = NodePath("../FreeThrowBall")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CountdownTimer"]
 stream = ExtResource( 13 )
+bus = "SFX"
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0959454, 7.7763 )

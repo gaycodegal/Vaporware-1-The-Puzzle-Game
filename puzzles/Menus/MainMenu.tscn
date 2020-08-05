@@ -222,9 +222,9 @@ __meta__ = {
 [node name="Options" type="VBoxContainer" parent="ScrollContainer/CenterContainer"]
 visible = false
 margin_left = 352.0
-margin_top = -31.0
+margin_top = 5.0
 margin_right = 671.0
-margin_bottom = 630.0
+margin_bottom = 594.0
 
 [node name="DisplaySizes" type="Label" parent="ScrollContainer/CenterContainer/Options"]
 margin_right = 300.0

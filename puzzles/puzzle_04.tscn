@@ -176,6 +176,7 @@ passcode = "1312"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="pointer"]
 stream = ExtResource( 11 )
+bus = "SFX"
 
 [node name="Rock" parent="." instance=ExtResource( 10 )]
 transform = Transform( -0.3, 0, -2.62268e-08, -5.11423e-08, -2.55712e-08, 0.585, -2.84232e-15, 0.743797, 3.25124e-08, 0, 2.68391, 0 )
