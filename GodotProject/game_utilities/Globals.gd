@@ -24,6 +24,11 @@ var settings = {
 		"borderless": false,
 		"maximize_window": false,
 		"font_scale": 1,
+	},
+	"audio" : {
+		"total": 100,
+		"music": 100,
+		"sfx": 100,
 	}
 }
 
@@ -47,6 +52,8 @@ func _ready():
 	args = Array(OS.get_cmdline_args())
 	load_config()
 	apply_options()
+	load_language()
+	apply_audio()
 
 func full_save_config():
 	config = ConfigFile.new()
@@ -115,7 +122,22 @@ func apply_options():
 	if not settings.options.fullscreen and not settings.options.maximize_window and OS.window_size != expected_size:
 		OS.window_size = expected_size
 		OS.center_window()
-	load_language()
+
+
+func apply_audio():
+	apply_channel("Master", settings.audio.total)
+	apply_channel("Music", settings.audio.music)
+	apply_channel("SFX", settings.audio.sfx)
+
+func apply_channel(channel, volume):
+	var ichannel = AudioServer.get_bus_index(channel)
+	if volume == 0:
+		AudioServer.set_bus_mute(ichannel, true)
+	else:
+		AudioServer.set_bus_volume_db(ichannel, volume_db_from_value(volume))
+
+func volume_db_from_value(volume):
+	return linear2db(volume / 100)
 
 func load_language():
 	var file = File.new()

@@ -222,9 +222,9 @@ __meta__ = {
 [node name="Options" type="VBoxContainer" parent="ScrollContainer/CenterContainer"]
 visible = false
 margin_left = 352.0
-margin_top = 5.0
+margin_top = -125.0
 margin_right = 671.0
-margin_bottom = 594.0
+margin_bottom = 725.0
 
 [node name="DisplaySizes" type="Label" parent="ScrollContainer/CenterContainer/Options"]
 margin_right = 300.0
@@ -291,6 +291,56 @@ margin_top = 385.0
 margin_right = 300.0
 margin_bottom = 389.0
 
+[node name="TotalVolume" type="Label" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 310.0
+margin_right = 300.0
+margin_bottom = 329.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Total Volume"
+
+[node name="*TotalVScale" type="HSlider" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 349.0
+margin_right = 300.0
+margin_bottom = 369.0
+min_value = 1.0
+value = 100.0
+
+[node name="MusicVolume" type="Label" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 310.0
+margin_right = 300.0
+margin_bottom = 329.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Music Volume"
+
+[node name="*MusicVScale" type="HSlider" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 349.0
+margin_right = 300.0
+margin_bottom = 369.0
+min_value = 1.0
+value = 100.0
+
+[node name="SFXVolume" type="Label" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 310.0
+margin_right = 300.0
+margin_bottom = 329.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "SFX Volume"
+
+[node name="*SFXVScale" type="HSlider" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 349.0
+margin_right = 300.0
+margin_bottom = 369.0
+min_value = 1.0
+value = 100.0
+
+[node name="*HSeparator3" type="HSeparator" parent="ScrollContainer/CenterContainer/Options"]
+margin_top = 385.0
+margin_right = 300.0
+margin_bottom = 389.0
+
 [node name="Languages" type="Label" parent="ScrollContainer/CenterContainer/Options"]
 margin_top = 409.0
 margin_right = 300.0
@@ -335,5 +385,8 @@ scroll_container_path = NodePath("../ScrollContainer")
 [connection signal="toggled" from="ScrollContainer/CenterContainer/Options/Fullscreen" to="." method="_on_Fullscreen_toggled"]
 [connection signal="toggled" from="ScrollContainer/CenterContainer/Options/Borderless" to="." method="_on_Borderless_toggled"]
 [connection signal="value_changed" from="ScrollContainer/CenterContainer/Options/*Font Scale" to="." method="_on_Font_Scale_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/CenterContainer/Options/*TotalVScale" to="." method="_on_Total_VScale_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/CenterContainer/Options/*MusicVScale" to="." method="_on_Music_VScale_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/CenterContainer/Options/*SFXVScale" to="." method="_on_SFX_VScale_value_changed"]
 [connection signal="item_selected" from="ScrollContainer/CenterContainer/Options/*Languages" to="." method="_on_Language_item_selected"]
 [connection signal="pressed" from="ScrollContainer/CenterContainer/Options/Back" to="." method="_on_Back_pressed"]

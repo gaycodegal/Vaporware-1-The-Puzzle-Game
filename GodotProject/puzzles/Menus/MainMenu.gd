@@ -66,6 +66,10 @@ func set_up_options():
 	get_node("ScrollContainer/CenterContainer/Options/Fullscreen").pressed = Globals.settings.options.fullscreen
 	get_node("ScrollContainer/CenterContainer/Options/Borderless").pressed = Globals.settings.options.borderless
 	get_node("ScrollContainer/CenterContainer/Options/*Font Scale").value = Globals.settings.options.font_scale
+	
+	get_node("ScrollContainer/CenterContainer/Options/*TotalVScale").value = Globals.settings.audio.total
+	get_node("ScrollContainer/CenterContainer/Options/*MusicVScale").value = Globals.settings.audio.music
+	get_node("ScrollContainer/CenterContainer/Options/*SFXVScale").value = Globals.settings.audio.sfx
 	ignore_changes = ignored
 
 func list_screen_sizes():
@@ -157,7 +161,7 @@ func _on_Language_item_selected(id):
 	var languages = get_node("ScrollContainer/CenterContainer/Options/*Languages")
 	var option_text = languages.get_item_text(id)
 	Globals.settings.options.language = option_text
-	Globals.apply_options()
+	Globals.load_language()
 	translate()
 	Globals.partial_save_config("options")
 
@@ -165,3 +169,27 @@ func _on_Language_item_selected(id):
 func _on_Controls_pressed():
 	get_tree().change_scene("res://puzzles/Menus/Controls.tscn")
 
+
+
+func _on_Total_VScale_value_changed(value):
+	if ignore_changes:
+		return
+	Globals.settings.audio.total = value
+	Globals.apply_audio()
+	Globals.partial_save_config("audio")
+
+
+func _on_Music_VScale_value_changed(value):
+	if ignore_changes:
+		return
+	Globals.settings.audio.music = value
+	Globals.apply_audio()
+	Globals.partial_save_config("audio")
+
+
+func _on_SFX_VScale_value_changed(value):
+	if ignore_changes:
+		return
+	Globals.settings.audio.sfx = value
+	Globals.apply_audio()
+	Globals.partial_save_config("audio")

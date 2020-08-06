@@ -75,9 +75,11 @@ func _ready():
 	INTERACT_TEXT = Globals.language.get_value("puzzle_commands", "Interact", "[E]  %s")
 	WIN_TEXT = Globals.language.get_value("puzzle_commands", "Win", "WIN_TEXT")
 	STAND_TEXT = Globals.language.get_value("puzzle_commands", "BadStand", "STAND_TEXT")
+	
 
 func _exit_tree():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$crouching.seek(0, true)
 
 func _process(d):
 
