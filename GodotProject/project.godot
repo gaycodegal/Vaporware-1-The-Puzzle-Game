@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Vaporwave Puzzle Game"
 run/main_scene="res://puzzles/Menus/MainMenu.tscn"
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://icon.png"
 
 [autoload]

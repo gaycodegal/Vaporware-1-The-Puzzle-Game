@@ -106,9 +106,15 @@ func list_languages():
 				options.append(file_name.substr(0, file_name.length() - conf_len))
 			file_name = dir.get_next()
 		var languages = get_node("ScrollContainer/CenterContainer/Options/*Languages")
+		var ind = 0
+		var i = 0
+		var ending =  Globals.settings.options.language
 		for option in options:
+			if option.ends_with(ending):
+				ind = i
+			i += 1
 			languages.add_item(option)
-		languages.select(options.find(Globals.settings.options.language))
+		languages.select(ind)
 
 
 func _on_ScreenSizes_item_selected(id):
@@ -160,7 +166,7 @@ func _on_Language_item_selected(id):
 		return
 	var languages = get_node("ScrollContainer/CenterContainer/Options/*Languages")
 	var option_text = languages.get_item_text(id)
-	Globals.settings.options.language = option_text
+	Globals.settings.options.language = option_text.substr(option_text.find_last(".") + 1)
 	Globals.load_language()
 	translate()
 	Globals.partial_save_config("options")
